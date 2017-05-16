@@ -20,7 +20,14 @@
   <%= csrf_meta_tags %>
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 </head>
-<body class="controller-<%= controller_name%> action-<%= action_name%>">
+<body class="controller-<%= controller_name%> action-<%= action_name%> landing-body">
+  
+  <div class="landing-header">
+    <div class="row">
+      <div class="gold-text-landing landing-jumbo col-xs-12">Dino's Jewelry</div>
+    </div>
+  </div>
+
   <div class="container">
     <% flash.each do |name, msg| %>
       <%= content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do %>
@@ -29,15 +36,13 @@
       <% end %>
     <% end %>
 
-  <div class="row landing-header">
-    <div class="gold-text landing-jumbo col-xs-12">Dino's</div>
-    <div class="gold-text landing-jumbo col-xs-12">Jewelry</div>
-  </div>
 
-  <div class="landing-box col-xs-6 col-xs-offset-3 text-center">
-    <h4 class="gold-text">Purveyor of Fine Jewelry</h4>
-    <h5 class="gold-text">Enter for your custom creation</h5>
-  </div>
+  <%= link_to pages_splash_path do %>
+    <div class="landing-box col-xs-6 col-xs-offset-3 text-center">
+      <h4 class="gold-text-landing">Purveyor of Fine Jewelry</h4>
+      <h5 class="gold-text-landing">Enter for your custom creation</h5>
+    </div>
+  <% end %>
 
   </div>
 </body>

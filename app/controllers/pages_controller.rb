@@ -1,6 +1,9 @@
 class PagesController < ApplicationController
-  layout false
+  layout false, only: [:landing]
 
   def landing
+  end
+
+  def splash
   end
 end

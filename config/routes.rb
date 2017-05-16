@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'pages/splash'
+
   get 'pages/landing'
 
   root 'pages#landing'

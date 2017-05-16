@@ -1,4 +1,4 @@
-body {
+.landing-body {
   background: image-url('hero_1.jpg') no-repeat center center fixed;
   background-size: cover;
   padding: 0;
@@ -6,34 +6,37 @@ body {
   font-family: 'Josefin Sans', sans-serif;
 }
 
-.gold-text {
+.gold-text-landing {
   color: #c8a851;
-  text-shadow: 2px 2px #000;
 }
 
 .landing-jumbo {
   font-size: 500%;
+  padding-left: 0.5em;
 }
 
 .landing-header {
-  margin: 4em 1em;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-size: 90%;
 }
 
 .landing-box {
   border: 2px solid #c8a851;
   color: #fff;
-  margin-top: 7em;
-  .gold-text {
-    text-shadow: 1px 1px #000;
+  margin-top: 25em;
+  background-color: rgba(0, 0, 0, 0.6);
+  .gold-text-landing {
+    text-shadow: none;
   }
 }
 
 @media only screen and (min-width: 768px) {
   .landing-jumbo {
     font-size: 800%;
+    padding-left: 1em;
   }
 
   .landing-box {
-    font-size: 200%;
+    margin-top: 35em;
   }
 }
