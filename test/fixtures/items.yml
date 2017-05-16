@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: MyString
+  metal: MyString
+  center_stone: MyString
+  certification: MyText
+  stones: MyString
+  size: 1
+  appraisal: MyText
+  price: 1
+  description: MyText
+
+two:
+  category: MyString
+  metal: MyString
+  center_stone: MyString
+  certification: MyText
+  stones: MyString
+  size: 1
+  appraisal: MyText
+  price: 1
+  description: MyText

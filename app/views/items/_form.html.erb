@@ -1,0 +1,104 @@
+<%= form_for(@item, html: { class: "form-horizontal", role: "form" }) do |f| %>
+
+  <%# Alert showing errors for this form %>
+  <% if @item.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h4>
+
+      <ul>
+      <% @item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%# category %>
+  <div class="form-group">
+    <%= f.label :category, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :category, class: "form-control" %>
+    </div>
+  </div>
+
+
+  <%# metal %>
+  <div class="form-group">
+    <%= f.label :metal, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :metal, class: "form-control" %>
+    </div>
+  </div>
+
+
+  <%# center_stone %>
+  <div class="form-group">
+    <%= f.label :center_stone, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :center_stone, class: "form-control" %>
+    </div>
+  </div>
+
+
+  <%# certification %>
+  <div class="form-group">
+    <%= f.label :certification, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :certification, class: "form-control" %>
+    </div>
+  </div>
+
+
+  <%# stones %>
+  <div class="form-group">
+    <%= f.label :stones, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :stones, class: "form-control" %>
+    </div>
+  </div>
+
+
+  <%# size %>
+  <div class="form-group">
+    <%= f.label :size, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :size, class: "form-control" %>
+    </div>
+  </div>
+
+
+  <%# appraisal %>
+  <div class="form-group">
+    <%= f.label :appraisal, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :appraisal, class: "form-control" %>
+    </div>
+  </div>
+
+
+  <%# price %>
+  <div class="form-group">
+    <%= f.label :price, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :price, class: "form-control" %>
+    </div>
+  </div>
+
+
+  <%# description %>
+  <div class="form-group">
+    <%= f.label :description, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+  </div>
+
+
+  <%# Submit %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end -%>
