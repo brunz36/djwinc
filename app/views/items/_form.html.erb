@@ -18,16 +18,15 @@
   <div class="form-group">
     <%= f.label :category, class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.text_field :category, class: "form-control" %>
+      <%= f.select(:category, Item.categories.map { |category| [ category, category ] }, class: "form-control") %>
     </div>
   </div>
-
 
   <%# metal %>
   <div class="form-group">
     <%= f.label :metal, class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.text_field :metal, class: "form-control" %>
+      <%= f.select(:metal, Item.metals.map { |metal| [ metal, metal ] }, class: "form-control") %>
     </div>
   </div>
 
