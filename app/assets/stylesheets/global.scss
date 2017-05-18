@@ -82,7 +82,7 @@ nav {
   }
 }
 
-// INDEX c8a851
+// INDEX PAGE
 .index-header {
   background-color: rgba(181, 181, 181, 0.4);
   h1 {
@@ -103,6 +103,42 @@ nav {
   }
   a {
     margin: 0;
+  }
+}
+
+// EDUCATION PAGE
+.education-header {
+  display: inline-block;
+  background-color: rgba(181, 181, 181, 0.4);
+  width: 100%;
+  a {
+    text-decoration: none;
+    color: #c8a851;
+  }
+  .fourc {
+    font-size: 150%;
+    padding-top: 0.5em;
+  }
+}
+
+.fourc-banner-left {
+  border-left: 5px solid #c8a851;
+  margin-top: 2em;
+  h3, h4 {
+    padding-left: 1em;
+  }
+  .table-responsive {
+    background: linear-gradient(to right, #fff, #fffb84);
+    font-size: 40%;
+  }
+}
+
+.fourc-banner-right {
+  border-right: 5px solid #000;
+  margin-top: 2em;
+  h3, h4, li {
+    padding-right: 1em;
+    list-style-type: none;
   }
 }
 
@@ -133,4 +169,23 @@ nav {
     }
   }
 
+  .fourc-banner {
+    h4 {
+      font-size: 150%;
+    }
+  }
+
+  .fourc-banner-left {
+    .table-responsive {
+      font-size: 100%;
+    }
+  }
+}
+
+@media only screen and (min-width: 580px) {
+  .fourc-banner-left {
+    .table-responsive {
+      font-size: 100%;
+    }
+  }
 }

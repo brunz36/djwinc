@@ -10,4 +10,9 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     get pages_splash_url
     assert_response :success
   end
+
+  test "should get education" do
+    get pages_splash_url
+    assert_response :success
+  end
 end

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'pages/education'
+
   get 'pages/splash'
 
   get 'pages/landing'
