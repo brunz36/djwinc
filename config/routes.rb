@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   root 'pages#landing'
 
-  resources :items
+  resources :items do
+    resources :photos
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  mount Shrine::DownloadEndpoint => "/attachments"
 end

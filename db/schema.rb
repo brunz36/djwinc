@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170515224138) do
+ActiveRecord::Schema.define(version: 20170518175652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "files", force: :cascade do |t|
+    t.binary "content"
+    t.text   "metadata"
+  end
 
   create_table "items", force: :cascade do |t|
     t.string   "category"
@@ -29,4 +34,13 @@ ActiveRecord::Schema.define(version: 20170515224138) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.text     "image_data"
+    t.integer  "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_photos_on_item_id", using: :btree
+  end
+
+  add_foreign_key "photos", "items"
 end

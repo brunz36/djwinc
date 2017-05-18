@@ -38,4 +38,20 @@
   <dt>Description:</dt>
   <dd><%= @item.description %></dd>
 
+
+  <% @item.photos.each do |photo| %>
+    <%= image_tag(photo.image_url(:small)) %>
+  <% end %>
+
+  <%= form_for [@item, @item.photos.new] do |photo_form| %>
+  <div class="form-group">
+     <%= photo_form.label :image, class: "col-sm-2 control-label" %>
+     <div class="col-sm-10">
+       <%# This is where our upload button goes! %>
+       <%= photo_form.hidden_field :image, value: photo_form.object.cached_image_data %>
+       <%= photo_form.file_field :image %>
+     </div>
+     <%= photo_form.submit %>
+   </div>
+  <% end %>
 </dl>

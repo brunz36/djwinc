@@ -51,6 +51,13 @@ gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
 gem 'jquery-ui-rails'
 
+## IMAGE UPLOADING & PROCESSING
+gem 'shrine', '~> 2.6', '>= 2.6.1'
+gem 'shrine-sql', '~> 1.1', '>= 1.1.2'
+gem 'roda', '~> 2.26'
+gem 'image_processing', '~> 0.4.1'
+gem 'mini_magick', '~> 4.7'
+
 group :development do
   gem 'awesome_print'
   gem 'dotenv-rails'
