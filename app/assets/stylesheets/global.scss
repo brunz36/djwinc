@@ -28,13 +28,13 @@ body {
 nav {
   background-color: #7f7f7f;
   a {
-    color: #333;
+    color: #000;
   }
   .navbar-brand {
   color: #c8a851;
   }
   a:hover {
-    color: #333;
+    color: #000;
   }
   .icon-bar {
     color: #c8a851;
@@ -48,6 +48,7 @@ nav {
   position: absolute;
   bottom: 0;
   background-color: #7f7f7f;
+  color: #000;
   a {
     color: inherit;
   }
@@ -55,7 +56,7 @@ nav {
     margin-bottom: 0.5em;
     padding: 0;
   }
-  h5 {
+  h4 {
     border-bottom: solid 2px #c8a851;
   }
 }
@@ -187,5 +188,9 @@ nav {
     .table-responsive {
       font-size: 100%;
     }
+  }
+
+  nav, footer {
+    font-size: 120%;
   }
 }
