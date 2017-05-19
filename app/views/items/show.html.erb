@@ -41,6 +41,20 @@
   <dt>Description:</dt>
   <dd><%= @item.description %></dd>
 
+  <% @item.photos.each do |photo| %>
+    <% if photo.image_data %>
+      <%= image_tag(photo.image_url(:small), class:"thumbnail") %>
+      <%= link_to item_photo_path(@item, photo), method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <div class="price_line">
+    <span class="price"><%= number_to_currency(@item.price) %></span>
+      <%= button_to 'Add to Cart', line_items_path(item_id: @item) %> 
+  </div>
+
   <%= form_for [@item, @item.photos.new] do |photo_form| %>
   <div class="form-group">
      <%= photo_form.label :image, class: "col-sm-2 control-label" %>
@@ -50,15 +64,6 @@
      </div>
      <%= photo_form.submit %>
    </div>
-  <% end %>
-
-  <% @item.photos.each do |photo| %>
-    <% if photo.image_data %>
-      <%= image_tag(photo.image_url(:small), class:"thumbnail") %>
-      <%= link_to item_photo_path(@item, photo), method: :delete, data: { confirm: 'Are you sure?' } do %>
-        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-      <% end %>
-    <% end %>
   <% end %>
 
 </dl>

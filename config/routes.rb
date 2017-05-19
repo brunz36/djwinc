@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :line_items
+  resources :carts
   get 'pages/education'
 
   get 'pages/splash'
