@@ -7,7 +7,7 @@ class PhotosController < ApplicationController
     if @photo.save
       redirect_to @photo.item, notice: 'Photo was successfully created.'
     else
-      render :new
+      redirect_to item_path(@item), notice: 'Could not save photo.'
     end
   end
 

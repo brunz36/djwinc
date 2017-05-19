@@ -11,12 +11,11 @@
         <%= link_to item, class:"thumbnail" do %>
           <%- item.photos.each_with_index do |photo, index| %>
             <%- if index == 0 %>
-              <%= image_tag photo.image_url(:small) %>
+              <%= image_tag photo.image_url(:medium) %>
             <% end %>
           <% end %>
         <% end %>
       </div>
     </div>
   <% end %>
-
 </div>

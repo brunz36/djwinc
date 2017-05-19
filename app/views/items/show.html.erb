@@ -38,17 +38,6 @@
   <dt>Description:</dt>
   <dd><%= @item.description %></dd>
 
-
-  <% @item.photos.each do |photo| %>
-    <% if photo.image_data %>
-      <%= image_tag(photo.image_url(:small), class:"thumbnail") %>
-      <%= link_to item_photo_path(@item, photo), method: :delete, data: { confirm: 'Are you sure?' } do %>
-        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-      <% end %>
-    <% end %>
-  <% end %>
-
-
   <%= form_for [@item, @item.photos.new] do |photo_form| %>
   <div class="form-group">
      <%= photo_form.label :image, class: "col-sm-2 control-label" %>
@@ -59,4 +48,14 @@
      <%= photo_form.submit %>
    </div>
   <% end %>
+
+  <% @item.photos.each do |photo| %>
+    <% if photo.image_data %>
+      <%= image_tag(photo.image_url(:small), class:"thumbnail") %>
+      <%= link_to item_photo_path(@item, photo), method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      <% end %>
+    <% end %>
+  <% end %>
+
 </dl>

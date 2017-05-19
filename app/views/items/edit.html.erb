@@ -7,7 +7,19 @@
     <span class="glyphicon glyphicon-info-sign"></span>
     Show
   <% end %>
+  <%= link_to item_path(@item), method: :delete, data: { confirm: 'Are you sure?' } do %>
+    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+  <% end %>
   <h1>Editing item</h1>
 </div>
 
 <%= render 'form' %>
+
+<% @item.photos.each do |photo| %>
+  <% if photo.image_data %>
+    <%= image_tag(photo.image_url(:small), class:"thumbnail") %>
+    <%= link_to item_photo_path(@item, photo), method: :delete, data: { confirm: 'Are you sure?' } do %>
+      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    <% end %>
+  <% end %>
+<% end %>
