@@ -1,7 +1,6 @@
 class LineItemsController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: [:create]
-  # before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 
   # GET /line_items
   def index
@@ -26,11 +25,17 @@ class LineItemsController < ApplicationController
   # POST /line_items
   def create
     item = Item.find(params[:item_id])
+
+    if @cart.items.include?(item)
+      # already have it...
+      redirect_to item, notice: 'Line item was already in the cart'
+      return
+    end
+
     @line_item = @cart.line_items.build(item: item)
-    # @line_item = LineItem.new(line_item_params)
 
     if @line_item.save
-      redirect_to @line_item.cart, notice: 'Line item was successfully created.'
+      redirect_to @line_item.cart
     else
       render :new
     end
@@ -57,6 +62,6 @@ class LineItemsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def line_item_params
-    params.require(:line_item).permit(:item_id, :cart_id)
+    params.require(:line_item).permit(:item_id)
   end
 end

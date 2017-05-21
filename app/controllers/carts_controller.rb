@@ -1,4 +1,6 @@
 class CartsController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
+
   # GET /carts
   def index
     @carts = Cart.all
@@ -42,9 +44,12 @@ class CartsController < ApplicationController
 
   # DELETE /carts/1
   def destroy
+    # @cart.destroy if @cart.id == session[:cart_id]
+    # session[:cart_id] = nil
+    # redirect_to item_url, notice: 'Your cart is empty.'
     @cart = Cart.find(params[:id])
     @cart.destroy
-    redirect_to carts_url, notice: 'Cart was successfully destroyed.'
+    redirect_to items_path, notice: 'Your cart is now empty.'
   end
 
   private
@@ -52,5 +57,10 @@ class CartsController < ApplicationController
   # Only allow a trusted parameter "white list" through.
   def cart_params
     params.fetch(:cart, {})
+  end
+
+  def invalid_cart
+    logger.error "Attempt to access invalid cart #{params[:id]}"
+    redirect_to item_url, notice: 'Invalid cart'
   end
 end

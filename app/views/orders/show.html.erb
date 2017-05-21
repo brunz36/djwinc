@@ -1,0 +1,41 @@
+<div class="page-header">
+  <%= link_to orders_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_order_path(@order), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show order</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>First name:</dt>
+  <dd><%= @order.first_name %></dd>
+
+  <dt>Last name:</dt>
+  <dd><%= @order.last_name %></dd>
+
+  <dt>Address:</dt>
+  <dd><%= @order.address %></dd>
+
+  <dt>City:</dt>
+  <dd><%= @order.city %></dd>
+
+  <dt>State:</dt>
+  <dd><%= @order.state %></dd>
+
+  <dt>Zip:</dt>
+  <dd><%= @order.zip %></dd>
+
+  <dt>Phone number:</dt>
+  <dd><%= @order.phone_number %></dd>
+
+  <dt>Email:</dt>
+  <dd><%= @order.email %></dd>
+
+  <dt>Pay type:</dt>
+  <dd><%= @order.pay_type %></dd>
+
+</dl>
