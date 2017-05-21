@@ -1,0 +1,7 @@
+<h2>Dino's Jewelry Order Received</h2>
+
+<h5>Dear <%= order.first_name %></h5>
+
+<p>You ordered the following items.</p>
+
+<%= render @order.line_items %>

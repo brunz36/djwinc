@@ -31,6 +31,7 @@ class OrdersController < ApplicationController
     if @order.save
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
+      OrderMailer.received(@order).deliver_later
       redirect_to items_path, notice: 'Thank you for the Order'
     else
       render :new
