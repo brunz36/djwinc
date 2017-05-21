@@ -15,6 +15,10 @@ class Item < ApplicationRecord
     %W{18KY 18KW 18KR PL 14KY 14KW Two-Tone Other}
   end
 
+  def self.in_stock
+    %W{true false}
+  end
+
 private
   def ensure_not_referenced_by_any_line_item
     unless line_items.empty?

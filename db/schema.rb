@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170521144416) do
+ActiveRecord::Schema.define(version: 20170521170645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,9 +35,10 @@ ActiveRecord::Schema.define(version: 20170521144416) do
     t.text     "appraisal"
     t.integer  "price"
     t.text     "description"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "name"
+    t.boolean  "in_stock", default: true
   end
 
   create_table "line_items", force: :cascade do |t|
@@ -58,7 +59,7 @@ ActiveRecord::Schema.define(version: 20170521144416) do
     t.string   "city"
     t.string   "state"
     t.integer  "zip"
-    t.integer  "phone_number"
+    t.bigint   "phone_number"
     t.string   "email"
     t.integer  "pay_type"
     t.datetime "created_at",   null: false
