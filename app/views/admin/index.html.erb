@@ -2,3 +2,5 @@
 
 <p>It's <%= Time.now %></p>
 <p>We have <%= pluralize(@total_orders, 'order') %></p>
+
+<%= button_to 'Admin Logout', logout_path, method: :delete, data: { confirm: 'Are you sure?' } %>
