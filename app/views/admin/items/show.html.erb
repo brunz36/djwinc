@@ -1,4 +1,12 @@
 <div class="page-header">
+  <%= link_to items_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_item_path(@item), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
   <h1>Show item</h1>
 </div>
 
@@ -39,6 +47,9 @@
   <% @item.photos.each do |photo| %>
     <% if photo.image_data %>
       <%= image_tag(photo.image_url(:small), class:"thumbnail") %>
+      <%= link_to item_photo_path(@item, photo), method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      <% end %>
     <% end %>
   <% end %>
 
@@ -47,5 +58,15 @@
       <%= button_to 'Add to Cart', line_items_path(item_id: @item) %>
   </div>
 
+  <%= form_for [@item, @item.photos.new] do |photo_form| %>
+  <div class="form-group">
+     <%= photo_form.label :image, class: "col-sm-2 control-label" %>
+     <div class="col-sm-10">
+       <%= photo_form.hidden_field :image, value: photo_form.object.cached_image_data %>
+       <%= photo_form.file_field :image %>
+     </div>
+     <%= photo_form.submit %>
+   </div>
+  <% end %>
 
 </dl>

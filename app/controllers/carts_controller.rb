@@ -49,7 +49,7 @@ class CartsController < ApplicationController
     # redirect_to item_url, notice: 'Your cart is empty.'
     @cart = Cart.find(params[:id])
     @cart.destroy
-    redirect_to items_path, notice: 'Your cart is now empty.'
+    redirect_to store_index_path, notice: 'Your cart is now empty.'
   end
 
   private
