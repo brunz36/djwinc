@@ -27,7 +27,6 @@ class LineItemsController < ApplicationController
     item = Item.find(params[:item_id])
 
     if @cart.items.include?(item)
-      # already have it...
       redirect_to item, notice: 'Line item was already in the cart'
       return
     end

@@ -1,4 +1,4 @@
-<%= form_for(@item, html: { class: "form-horizontal", role: "form" }) do |f| %>
+<%= form_for([:admin, @item], html: { class: "form-horizontal", role: "form" }) do |f| %>
 
   <%# Alert showing errors for this form %>
   <% if @item.errors.any? %>

@@ -7,13 +7,25 @@
     <span class="glyphicon glyphicon-info-sign"></span>
     Show
   <% end %>
-  <%= link_to item_path(@item), method: :delete, data: { confirm: 'Are you sure?' } do %>
-    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+  <%= link_to admin_item_path(@item), method: :delete, class: 'btn btn-primary', data: { confirm: 'Are you sure?'} do %>
+    <span class="glyphicon glyphicon-trash"></span>
+    Delete
   <% end %>
   <h1>Editing item</h1>
 </div>
 
 <%= render 'form' %>
+
+<%= form_for [@item, @item.photos.new] do |photo_form| %>
+<div class="form-group">
+   <%= photo_form.label :image, class: "col-sm-2 control-label" %>
+   <div class="col-sm-10">
+     <%= photo_form.hidden_field :image, value: photo_form.object.cached_image_data %>
+     <%= photo_form.file_field :image %>
+   </div>
+   <%= photo_form.submit %>
+ </div>
+<% end %>
 
 <% @item.photos.each do |photo| %>
   <% if photo.image_data %>

@@ -7,7 +7,7 @@ class PhotosController < ApplicationController
     @photo = @item.photos.new(photo_params)
 
     if @photo.save
-      redirect_to @photo.item, notice: 'Photo was successfully created.'
+      redirect_to admin_item_path(@item), notice: 'Photo was successfully created.'
     else
       redirect_to item_path(@item), notice: 'Could not save photo.'
     end
@@ -17,7 +17,7 @@ class PhotosController < ApplicationController
     @item = Item.find(params[:item_id])
     @photo = @item.photos.find(params[:id])
     @photo.destroy
-    redirect_to item_path(@item), notice: 'Photo was successfully destroyed.'
+    redirect_to admin_item_path(@item), notice: 'Photo was successfully destroyed.'
   end
 
   private

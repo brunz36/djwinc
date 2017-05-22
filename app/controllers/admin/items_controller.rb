@@ -1,7 +1,7 @@
 module Admin
   class ItemsController < ApplicationController
     before_action :authorize
-  
+
     # GET /items
     def index
       @items = Item.all
@@ -27,7 +27,7 @@ module Admin
       @item = Item.new(item_params)
 
       if @item.save
-        redirect_to @item, notice: 'Item was successfully created.'
+        redirect_to admin_item_path(@item), notice: 'Item was successfully created.'
       else
         render :new
       end
@@ -37,7 +37,7 @@ module Admin
     def update
       @item = Item.find(params[:id])
       if @item.update(item_params)
-        redirect_to @item, notice: 'Item was successfully updated.'
+        redirect_to admin_item_path(@item), notice: 'Item was successfully updated.'
       else
         render :edit
       end
@@ -48,7 +48,7 @@ module Admin
       @item = Item.find(params[:id])
 
       @item.destroy
-      redirect_to items_url, notice: 'Item was successfully destroyed.'
+      redirect_to admin_items_path, notice: 'Item was successfully destroyed.'
     end
 
     private

@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: [:new, :create]
   before_action :ensure_cart_isnt_empty, only: :new
+  before_action :authorize, only: [:index, :show]
 
   # GET /orders
   def index
@@ -28,11 +29,14 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.add_line_items_from_cart(@cart)
 
+    ap "THIS IS THE ORDER"
+    ap @order
+
     if @order.save
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
       OrderMailer.received(@order).deliver_later
-      redirect_to items_path, notice: 'Thank you for the Order'
+      redirect_to store_index_path, notice: 'Thank you for the Order'
     else
       render :new
     end

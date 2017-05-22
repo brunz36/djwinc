@@ -37,7 +37,7 @@
       </div>
       <div id="navbar" class="collapse navbar-collapse pull-right">
         <ul class="nav navbar-nav text-right">
-          <li class="active"><%= link_to "Fine Jewelry", items_path %></li>
+          <li class="active"><%= link_to "Fine Jewelry", store_index_path %></li>
           <li class="active"><%= link_to "Diamonds", "#" %></li>
           <li class="active"><%= link_to "Education", pages_education_path %></li>
           <li class="active"><%= link_to "Portfolio", "#" %></li>
@@ -99,7 +99,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <h6 class="text-center">Copyright &copy; <%= Time.now.year %> Dino's Jewelry Workshop Inc.</h6>
+      <h6 class="text-center">Copyright &copy; <%= Time.now.year %> <%= link_to "Dino's Jewelry Workshop Inc.", admin_path %></h6>
     </div>
   </footer>
 

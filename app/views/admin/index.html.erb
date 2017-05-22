@@ -3,4 +3,6 @@
 <p>It's <%= Time.now %></p>
 <p>We have <%= pluralize(@total_orders, 'order') %></p>
 
-<%= button_to 'Admin Logout', logout_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Items', admin_items_path %>
+<%= link_to 'Orders', orders_path %>
+<%= link_to 'Admin Logout', logout_path, method: :delete, data: { confirm: 'Are you sure?' } %>

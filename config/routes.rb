@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  root 'pages#landing'
+
   get 'store/index'
 
-  # get 'store/item', to: :show, controller: 'items'
+  get 'pages/education'
+  get 'pages/splash'
+  get 'pages/landing'
 
   get 'admin' => 'admin#index'
 
@@ -15,12 +19,6 @@ Rails.application.routes.draw do
   resources :orders
   resources :line_items
   resources :carts
-
-  get 'pages/education'
-  get 'pages/splash'
-  get 'pages/landing'
-
-  root 'pages#landing'
 
   # For my customers
   resources :items do
