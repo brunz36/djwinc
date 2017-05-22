@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'store/index'
+
+  # get 'store/item', to: 'items#show', as: 'item'
+
   get 'admin' => 'admin#index'
 
   controller :sessions do

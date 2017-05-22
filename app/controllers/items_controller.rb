@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  skip_before_action :authorize, only: :show
+
   # GET /items
   def index
     @items = Item.all

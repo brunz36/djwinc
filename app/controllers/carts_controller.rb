@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
+  skip_before_action :authorize, only: [:show, :create, :update, :destroy]
 
   # GET /carts
   def index
@@ -49,7 +50,7 @@ class CartsController < ApplicationController
     # redirect_to item_url, notice: 'Your cart is empty.'
     @cart = Cart.find(params[:id])
     @cart.destroy
-    redirect_to items_path, notice: 'Your cart is now empty.'
+    redirect_to store_index_path, notice: 'Your cart is now empty.'
   end
 
   private
