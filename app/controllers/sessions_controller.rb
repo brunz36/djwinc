@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  skip_before_action :authorize
 
   def new
   end
@@ -16,6 +15,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to items_path, notice: 'Logged Out'
+    redirect_to store_index_path, notice: 'Logged Out'
   end
 end

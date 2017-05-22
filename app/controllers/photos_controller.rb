@@ -1,4 +1,6 @@
 class PhotosController < ApplicationController
+  before_action :authorize
+
   # POST /photos
   def create
     @item  = Item.find(params[:item_id])

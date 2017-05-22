@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'store/index'
 
-  # get 'store/item', to: 'items#show', as: 'item'
+  # get 'store/item', to: :show, controller: 'items'
 
   get 'admin' => 'admin#index'
 
@@ -22,9 +22,16 @@ Rails.application.routes.draw do
 
   root 'pages#landing'
 
+  # For my customers
   resources :items do
     resources :photos
   end
+
+  # administrate those items
+  namespace :admin do
+    resources :items
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   mount Shrine::DownloadEndpoint => "/attachments"

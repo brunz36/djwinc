@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authorize
+
   # GET /users
   def index
     @users = User.order(:name)
