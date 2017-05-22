@@ -4,8 +4,10 @@ class Item < ApplicationRecord
 
   before_destroy :ensure_not_referenced_by_any_line_item
 
-  validates :price, length: { in: 3...6 }, numericality: true
+  validates :price, length: { in: 6...10 }, numericality: true
   validates :description, length: { in: 5..255 }
+
+  monetize :price_cents
 
   def self.categories
     %W{Rings Earrings Bracelets Necklaces Other}

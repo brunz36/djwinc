@@ -58,6 +58,9 @@ gem 'roda', '~> 2.26'
 gem 'image_processing', '~> 0.4.1'
 gem 'mini_magick', '~> 4.7'
 
+# MONEY GEM FOR SUPERMAN PROBLEM
+gem 'money-rails', '~>1'
+
 group :development do
   gem 'awesome_print'
   gem 'dotenv-rails'
