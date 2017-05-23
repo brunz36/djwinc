@@ -1,23 +1,8 @@
 class LineItemsController < ApplicationController
 
-  # GET /line_items
-  def index
-    @line_items = LineItem.all
-  end
-
-  # GET /line_items/1
-  def show
-    @line_item = LineItem.find(params[:id])
-  end
-
   # GET /line_items/new
   def new
     @line_item = LineItem.new
-  end
-
-  # GET /line_items/1/edit
-  def edit
-    @line_item = LineItem.find(params[:id])
   end
 
   # POST /line_items
@@ -38,16 +23,6 @@ class LineItemsController < ApplicationController
       redirect_to cart_path(current_cart)
     else
       render :new
-    end
-  end
-
-  # PATCH/PUT /line_items/1
-  def update
-    @line_item = LineItem.find(params[:id])
-    if @line_item.update(line_item_params)
-      redirect_to @line_item, notice: 'Line item was successfully updated.'
-    else
-      render :edit
     end
   end
 

@@ -38,7 +38,7 @@
 
   <% @item.photos.each do |photo| %>
     <% if photo.image_data %>
-      <%= image_tag(photo.image_url(:small), class:"thumbnail") %>
+      <%= image_tag(photo.image_url(:large), class:"thumbnail") %>
     <% end %>
   <% end %>
 
