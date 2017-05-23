@@ -13,10 +13,11 @@ class Order < ApplicationRecord
     %W{AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY}
   end
 
-  def add_line_items_from_cart(cart)
-    cart.line_items.each do |item|
-      item.cart_id = nil
-      line_items << item
+  def order_total
+    sum = 0
+    line_items.each do |line_item|
+      sum += line_item.item.price
     end
+    sum
   end
 end

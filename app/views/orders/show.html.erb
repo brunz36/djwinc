@@ -38,4 +38,11 @@
   <dt>Pay type:</dt>
   <dd><%= @order.pay_type %></dd>
 
+  <% @order.line_items.each_with_index do |line_item, index| %>
+  <dt>Item <%= index + 1 %>:</dt>
+    <dd><%= line_item.item.name %> <%= line_item.item.price %></dd>
+  <% end %>
+
+  <dt>Total:</dt>
+  <dd><%= number_to_currency(@order.order_total) %></dd>
 </dl>

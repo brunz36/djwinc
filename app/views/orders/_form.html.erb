@@ -93,6 +93,15 @@
     </div>
   </div>
 
+  <ul>
+    <% @current_cart.line_items.each do |line_item| %>
+      <li>Item: <%= line_item.item.name %>/ Price: <%= number_to_currency(line_item.item.price) %>
+    <% end %>
+  </ul>
+
+  <ul>
+    <li><%= @current_cart.sub_total%></li>
+  </ul>
 
   <%# Submit %>
   <div class="form-group">

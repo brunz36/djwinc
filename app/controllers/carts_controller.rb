@@ -9,7 +9,7 @@ class CartsController < ApplicationController
 
   # GET /carts/1
   def show
-    @cart = Cart.find(params[:id])
+    @cart = @current_cart
   end
 
   # GET /carts/new
@@ -45,8 +45,9 @@ class CartsController < ApplicationController
 
   # DELETE /carts/1
   def destroy
-    @cart = Cart.find(params[:id])
+    @cart = @current_cart
     @cart.destroy
+    session[:cart_id] = nil
     redirect_to store_index_path, notice: 'Your cart is now empty.'
   end
 

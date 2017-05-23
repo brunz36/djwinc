@@ -1,20 +1,16 @@
-<div class="page-header">
-  <h1>Show cart</h1>
-</div>
-
-<dl class="dl-horizontal">
-</dl>
-
 <h2>Dino's Jewelry</h2>
-<h3>Cart</h3>
-<table>
-  <%= render(@cart.line_items) %>
+<h2>Cart show</h2>
+<ul>
+  <% @cart.line_items.each do |line_item| %>
+    <li>Item: <%= line_item.item.name %>/ Price: <%= number_to_currency(line_item.item.price) %>
+    <ul>
+      <li>
+        <%= link_to "Remove item", line_item_path(line_item), method: :delete %>
+      </li>
+    </ul>
+  <% end %>
+</ul>
+<h3>Sub total: <%= number_to_currency(@cart.sub_total) %></h3>
+<%= link_to "Proceed to checkout", new_order_path %>
 
-  <tr>
-    <td>Total</td>
-    <td><%= number_to_currency(@cart.total_price) %></td>
-  </tr>
-</table>
-
-<%= button_to 'Checkout', new_order_path, method: :get %>
-<%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to "Empty cart", cart_path(@current_cart), method: :delete, data: {confirm: "Are you sure?"} %>

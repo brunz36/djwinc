@@ -1,7 +1,4 @@
 class OrdersController < ApplicationController
-  include CurrentCart
-  before_action :set_cart, only: [:new, :create]
-  before_action :ensure_cart_isnt_empty, only: :new
   before_action :authorize, only: [:index, :show]
 
   # GET /orders
@@ -27,16 +24,16 @@ class OrdersController < ApplicationController
   # POST /orders
   def create
     @order = Order.new(order_params)
-    @order.add_line_items_from_cart(@cart)
-
-    ap "THIS IS THE ORDER"
-    ap @order
+    @current_cart.line_items.each do |item|
+      @order.line_items << item
+      item.cart_id = nil
+    end
 
     if @order.save
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
       OrderMailer.received(@order).deliver_later
-      redirect_to store_index_path, notice: 'Thank you for the Order'
+      redirect_to store_index_path
     else
       render :new
     end
@@ -64,11 +61,5 @@ class OrdersController < ApplicationController
   # Only allow a trusted parameter "white list" through.
   def order_params
     params.require(:order).permit(:first_name, :last_name, :address, :city, :state, :zip, :phone_number, :email, :pay_type)
-  end
-
-  def ensure_cart_isnt_empty
-    if @cart.line_items.empty?
-      redirect_to item_index_url, notice: 'Your cart is empty.'
-    end
   end
 end
