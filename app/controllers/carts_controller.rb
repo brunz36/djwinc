@@ -1,15 +1,9 @@
 class CartsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
-  before_action :authorize, only: :index
-
-  # GET /carts
-  def index
-    @carts = Cart.all
-  end
 
   # GET /carts/1
   def show
-    @cart = Cart.find(params[:id])
+    @cart = @current_cart
   end
 
   # GET /carts/new
@@ -45,8 +39,9 @@ class CartsController < ApplicationController
 
   # DELETE /carts/1
   def destroy
-    @cart = Cart.find(params[:id])
+    @cart = @current_cart
     @cart.destroy
+    session[:cart_id] = nil
     redirect_to store_index_path, notice: 'Your cart is now empty.'
   end
 

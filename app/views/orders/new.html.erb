@@ -1,17 +1,9 @@
 <div class="page-header">
-  <%= link_to orders_path, class: 'btn btn-default' do %>
+  <%= link_to cart_path(@current_cart), class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
     Back
   <% end %>
   <h1>New order</h1>
 </div>
-
-<table>
-  <%= render(@cart.line_items) %>
-  <tr>
-    <td>Total</td>
-    <td><%= number_to_currency(@cart.total_price) %></td>
-  </tr>
-</table>
 
 <%= render 'form' %>

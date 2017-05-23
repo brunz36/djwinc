@@ -18,6 +18,8 @@
         <th>Zip</th>
         <th>Phone number</th>
         <th>Email</th>
+        <th>Item Total</th>
+        <th>Total Price</th>
         <th>Pay type</th>
         <th colspan="3"></th>
       </tr>
@@ -34,6 +36,8 @@
         <td><%= order.zip %></td>
         <td><%= order.phone_number %></td>
         <td><%= order.email %></td>
+        <td><%= order.line_items.count %></td>
+        <td><%= order.order_total %></td>
         <td><%= order.pay_type %></td>
         <td>
           <%= link_to order do %>
@@ -51,7 +55,7 @@
           <% end %>
         </td>
       </tr>
-      <% end %>
-    </tbody>
+    <% end %>
+  </tbody>
   </table>
 </div>
