@@ -1,51 +1,45 @@
-<div class="page-header">
-  <h1>Show item</h1>
+<div class="page-header item-show">
+  <h1><%= @item.name.upcase %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Category:</dt>
-  <dd><%= @item.category %></dd>
+<div class="djwinc-border-carousel col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+  <% if @item.photos %>
+    <div id="carousel-generic" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner" role="listbox">
+        <% @item.photos.each_with_index do |photo, index| %>
+          <%- if index == 0 %>
+            <div class="item active">
+              <%= image_tag(photo.image_url(:medium), class:"thumbnail col-xs-12") %>
+            </div>
+          <% else %>
+            <div class="item">
+              <%= image_tag(photo.image_url(:medium), class:"thumbnail col-xs-12") %>
+            </div>
+          <% end %>
+        <% end %>
+        </div>
 
-  <dt>Metal:</dt>
-  <dd><%= @item.metal %></dd>
-
-  <dt>Center stone:</dt>
-  <dd><%= @item.center_stone %></dd>
-
-  <dt>Name:</dt>
-  <dd><%= @item.name %></dd>
-
-  <dt>Certification:</dt>
-  <dd><%= @item.certification %></dd>
-
-  <dt>Stones:</dt>
-  <dd><%= @item.stones %></dd>
-
-  <dt>Size:</dt>
-  <dd><%= @item.size %></dd>
-
-  <dt>Appraisal:</dt>
-  <dd><%= @item.appraisal %></dd>
-
-  <dt>Price:</dt>
-  <dd><%= @item.price %></dd>
-
-  <dt>In Stock:</dt>
-  <dd><%= @item.in_stock %></dd>
-
-  <dt>Description:</dt>
-  <dd><%= @item.description %></dd>
-
-  <% @item.photos.each do |photo| %>
-    <% if photo.image_data %>
-      <%= image_tag(photo.image_url(:large), class:"thumbnail") %>
-    <% end %>
+      <a class="left carousel-control" href="#carousel-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left gold-text" aria-hidden="true"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right gold-text" aria-hidden="true"></span>
+      </a>
+    </div>
   <% end %>
+</div>
 
-  <div class="price_line">
-    <span class="price"><%= number_to_currency(@item.price) %></span>
-      <%= button_to 'Add to Cart', line_items_path(item_id: @item) %>
+<div class="container-fluid row">
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2 ">
+    <div class="item-row">
+      <h3><%= @item.metal %> <%= @item.category.upcase %></h3>
+    </div>
+    <div class="item-row">
+      <h5><%= @item.description %></h5>
+    </div>
+    <div class="item-row">
+      <h5><%= number_to_currency(@item.price) %></h5>
+    </div>
+    <%= button_to 'Add to Cart', line_items_path(item_id: @item), class:"pull-right cart-button" %>
   </div>
-
-
-</dl>
+</div>
