@@ -1,16 +1,38 @@
-<h2>Dino's Jewelry</h2>
-<h2>Cart show</h2>
-<ul>
-  <% @cart.line_items.each do |line_item| %>
-    <li>Item: <%= line_item.item.name %>/ Price: <%= number_to_currency(line_item.item.price) %>
-    <ul>
-      <li>
-        <%= link_to "Remove item", line_item_path(line_item), method: :delete %>
-      </li>
-    </ul>
-  <% end %>
-</ul>
-<h3>Sub total: <%= number_to_currency(@cart.sub_total) %></h3>
-<%= link_to "Proceed to checkout", new_order_path %>
+<h2>Your Shopping Cart</h2>
 
-<%= link_to "Empty cart", cart_path(@current_cart), method: :delete, data: {confirm: "Are you sure?"} %>
+<table class="table">
+  <thead>
+    <th class="col-xs-4"><h3>Item</h3></th>
+    <th class="col-xs-4"></th>
+    <th class="col-xs-4 text-right"><h3>Price</h3></th>
+  </thead>
+  <tbody>
+    <% @cart.line_items.each do |line_item| %>
+      <tr>
+        <%- line_item.item.photos.each_with_index do |photo, index| %>
+          <%- if index == 0 %>
+            <td class="col-xs-4 cart-img"><%= image_tag photo.image_url(:medium) %></td>
+          <% end %>
+        <% end %>
+        <td class="col-xs-4"><h5><%= line_item.item.name %></h5></td>
+        <td class="col-xs-4 text-right"><h5><%= number_to_currency(line_item.item.price) %></h5><%= link_to "Remove Item", line_item_path(line_item), method: :delete, class:"pull-right" %></td>
+        <% end %>
+      </tr>
+  </tbody>
+  <tfoot class="cart-footer">
+    <tr>
+      <td>
+        <button type="button" class="btn btn-default">
+          <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"> <%= link_to "Empty Cart", cart_path(@current_cart), method: :delete, data: {confirm: "Are you sure?"} %></span></td>
+        </button>
+      </td>
+      <td colspan="2"><h4 class="pull-right">Sub total: <%= number_to_currency(@cart.sub_total) %></h4></td>
+    </tr>
+  </tfoot>
+</table>
+
+<br><br><br>
+
+
+
+<%= link_to "Proceed to checkout", new_order_path %>
