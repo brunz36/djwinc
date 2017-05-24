@@ -1,9 +1,8 @@
-<div class="page-header">
-  <%= link_to cart_path(@current_cart), class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+<div class="page-header order-header">
+  <%= link_to cart_path(@current_cart), class:'pull-right' do %>
+    <span>Return To Cart</span>
   <% end %>
-  <h1>New order</h1>
+  <h1>Order Details</h1>
 </div>
 
 <%= render 'form' %>

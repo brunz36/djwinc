@@ -14,99 +14,91 @@
     </div>
   <% end %>
 
-  <%# first_name %>
+  <%# first_name & last_name %>
   <div class="form-group">
-    <%= f.label :first_name, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    <%= f.label :first_name, "First Name:", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
       <%= f.text_field :first_name, class: "form-control" %>
     </div>
-  </div>
-
-
-  <%# last_name %>
-  <div class="form-group">
-    <%= f.label :last_name, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    <%= f.label :last_name, "Last Name:", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
       <%= f.text_field :last_name, class: "form-control" %>
     </div>
   </div>
 
-
-  <%# address %>
+  <%# address & city %>
   <div class="form-group">
-    <%= f.label :address, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    <%= f.label :address, "Address:", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
       <%= f.text_field :address, class: "form-control" %>
     </div>
-  </div>
-
-
-  <%# city %>
-  <div class="form-group">
-    <%= f.label :city, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    <%= f.label :city, "City:", class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
       <%= f.text_field :city, class: "form-control" %>
     </div>
   </div>
 
-
-  <%# state %>
+  <%# state & zip %>
   <div class="form-group">
-    <%= f.label :state, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    <%= f.label :state, "State:",class: "col-xs-2 control-label" %>
+    <div class="col-xs-4">
       <%= f.select(:state, Order.states.map { |state| [state, state] }, prompt: 'Select State', class: "form-control") %>
     </div>
-  </div>
-
-  <%# zip %>
-  <div class="form-group">
-    <%= f.label :zip, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    <%= f.label :zip, "Zip:", class: "col-xs-2 control-label" %>
+    <div class="col-xs-4">
       <%= f.number_field :zip, class: "form-control" %>
     </div>
   </div>
 
-
-  <%# phone_number %>
+  <%# phone_number & email %>
   <div class="form-group">
     <%= f.label :phone_number, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    <div class="col-sm-4">
       <%= f.number_field :phone_number, class: "form-control" %>
     </div>
-  </div>
-
-
-  <%# email %>
-  <div class="form-group">
     <%= f.label :email, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    <div class="col-sm-4">
       <%= f.email_field :email, class: "form-control" %>
     </div>
   </div>
 
-
   <%# pay_type %>
   <div class="form-group">
-    <%= f.label :pay_type, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
+    <%= f.label :pay_type, class: "col-xs-3 col-sm-2 control-label" %>
+    <div class="col-xs-9 col-sm-10">
       <%= f.select :pay_type, Order.pay_types.keys, prompt: 'Select Payment Method', class: "form-control" %>
     </div>
   </div>
 
-  <ul>
-    <% @current_cart.line_items.each do |line_item| %>
-      <li>Item: <%= line_item.item.name %>/ Price: <%= number_to_currency(line_item.item.price) %>
-    <% end %>
-  </ul>
-
-  <ul>
-    <li><%= @current_cart.sub_total%></li>
-  </ul>
+  <!--ITEM TABLE & TOTAL  -->
+  <div class="container">
+    <div class="row col-sm-6 col-sm-offset-6">
+      <table class="table">
+        <thead>
+          <th class="col-xs-6"><h3>Item</h3></th>
+          <th class="col-xs-6 text-right"><h3>Price</h3></th>
+        </thead>
+        <tbody>
+          <% @current_cart.line_items.each do |line_item| %>
+            <tr>
+              <td class="col-xs-6"><h4><%= line_item.item.name %></h4></td>
+              <td class="col-xs-6 text-right"><h4><%= number_to_currency(line_item.item.price) %></h4></td>
+              <% end %>
+            </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2" class="col-xs-12 text-right"><h3 class="order-total-border">Total: <%= number_to_currency(@current_cart.sub_total) %></h3></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
 
   <%# Submit %>
   <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <%= f.submit class: "btn btn-primary" %>
+    <div class="col-xs-offset-8 col-xs-2 col-sm-offset-10 col-sm-2">
+      <span><%= f.submit class:"order-submit" %></span>
     </div>
   </div>
 <% end -%>
