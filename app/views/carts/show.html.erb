@@ -23,16 +23,27 @@
     <tr>
       <td>
         <button type="button" class="btn btn-default">
-          <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"> <%= link_to "Empty Cart", cart_path(@current_cart), method: :delete, data: {confirm: "Are you sure?"} %></span></td>
+          <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"> <%= link_to "Empty Cart", cart_path(@current_cart), method: :delete, data: {confirm: "Are you sure?"} %></span>
         </button>
       </td>
       <td colspan="2"><h4 class="pull-right">Sub total: <%= number_to_currency(@cart.sub_total) %></h4></td>
     </tr>
+    <tr>
+      <td colspan="3"><h4 class="pull-right">Shipping: FREE*</h4></td>
+    </tr>
+    <tr>
+      <td colspan='3'>
+        <button type="button" class="btn btn-default pull-right">
+          <%= link_to "Proceed To Checkout", new_order_path %></span></td>
+        </button>
+      </td>
+    </tr>
   </tfoot>
 </table>
 
-<br><br><br>
-
-
-
-<%= link_to "Proceed to checkout", new_order_path %>
+<div class="container-fluid row">
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1 cart-footer">
+    <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+    <span>All orders placed with Dino's Jewelry will be shipped with UPS Next Day Air using <a href="https://parcelpro.com/" target="_blank">PARCEL PRO SHIPPING INSURANCES SERVICES.</a> We offer this service only to the Continental United States, please call <a href="tel:8134958434">813-495-8434</a> for any other arrangements.</span>
+  </div>
+</div>
