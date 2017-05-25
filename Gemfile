@@ -61,6 +61,9 @@ gem 'mini_magick', '~> 4.7'
 # MONEY GEM FOR SUPERMAN PROBLEM
 gem 'money-rails', '~>1'
 
+# PAGINATION
+gem 'kaminari', '~> 1.0', '>= 1.0.1'
+
 group :development do
   gem 'awesome_print'
   gem 'dotenv-rails'
