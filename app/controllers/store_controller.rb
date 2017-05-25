@@ -1,5 +1,5 @@
 class StoreController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.all.page params[:page]
   end
 end

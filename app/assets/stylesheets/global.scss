@@ -108,6 +108,26 @@ nav {
   }
 }
 
+.pagination {
+  font-size: 125%;
+  li {
+    a {
+      color: #333;
+      background-color: transparent;
+    }
+  }
+  .active {
+    a {
+      background-color: #c8a851;
+      border-color: #c8a851;
+    }
+    a:hover {
+      background-color: #c8a851;
+      border-color: #c8a851;
+    }
+  }
+}
+
 // EDUCATION PAGE
 .education-header {
   display: inline-block;

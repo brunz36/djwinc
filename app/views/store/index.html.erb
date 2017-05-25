@@ -19,3 +19,10 @@
     </div>
   <% end %>
 </div>
+
+<div class="text-center items-paginate">
+  <%= paginate @items, theme: "bootstrap2" %>
+</div>
+<div class="text-center items-paginate">
+  <%= page_entries_info @items, entry_name: 'Creation' %>
+</div>
