@@ -43,6 +43,12 @@
     <dd><%= line_item.item.name %> <%= line_item.item.price %></dd>
   <% end %>
 
+  <dt>Sub Total:</dt>
+  <dd><%= number_to_currency(@order.order_sub_total) %></dd>
+
+  <dt>Tax:</dt>
+  <dd><%= number_to_currency(@order.order_sales_tax) %></dd>
+
   <dt>Total:</dt>
-  <dd><%= number_to_currency(@order.order_total) %></dd>
+  <dd><%= number_to_currency(@order.order_sub_total + @order.order_sales_tax) %></dd>
 </dl>

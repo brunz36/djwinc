@@ -13,11 +13,19 @@ class Order < ApplicationRecord
     %W{AL AZ AR CA CO CT DE FL GA ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY}
   end
 
-  def order_total
-    sum = 0
+  def order_sub_total
+    sub_total = 0
     line_items.each do |line_item|
-      sum += line_item.item.price
+      sub_total += line_item.item.price
     end
-    sum
+    sub_total
+  end
+
+  def order_sales_tax
+    sales_tax = 0
+    line_items.each do |line_item|
+      sales_tax += line_item.item.price * 0.07
+    end
+    sales_tax
   end
 end
