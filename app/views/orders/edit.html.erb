@@ -1,0 +1,8 @@
+<div class="page-header order-header">
+  <%= link_to cart_path(@current_cart), class:'pull-right' do %>
+    <span>Return To Cart</span>
+  <% end %>
+  <h1>Order Details</h1>
+</div>
+
+<%= render 'form' %>
