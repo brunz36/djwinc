@@ -3,10 +3,18 @@ class Cart < ApplicationRecord
   has_many :items, through: :line_items
 
   def sub_total
-    sum = 0
+    sub_total = 0
     line_items.each do |line_item|
-      sum += line_item.item.price
+      sub_total += line_item.item.price
     end
-    sum
+    sub_total
+  end
+
+  def sales_tax
+    sales_tax = 0
+    line_items.each do |line_item|
+      sales_tax += line_item.item.price * 0.07
+    end
+    sales_tax
   end
 end

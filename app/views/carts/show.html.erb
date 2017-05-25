@@ -26,10 +26,16 @@
           <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"> <%= link_to "Empty Cart", cart_path(@current_cart), method: :delete, data: {confirm: "Are you sure?"} %></span>
         </button>
       </td>
-      <td colspan="2"><h4 class="pull-right">Sub total: <%= number_to_currency(@cart.sub_total) %></h4></td>
+      <td colspan="2"><h4 class="pull-right">Sub Total: <%= number_to_currency(@cart.sub_total) %></h4></td>
+    </tr>
+    <tr>
+      <td colspan="3"><h4 class="pull-right">Tax: <%= number_to_currency(@cart.sales_tax) %></h4></td>
     </tr>
     <tr>
       <td colspan="3"><h4 class="pull-right">Shipping: FREE*</h4></td>
+    </tr>
+    <tr>
+      <td colspan="3"><h4 class="pull-right">Total: <%= number_to_currency(@cart.sales_tax + @cart.sub_total) %></h4></td>
     </tr>
     <tr>
       <td colspan='3'>
