@@ -12,7 +12,7 @@ Shrine.storages = {
 
 download_options = { prefix: "attachments", storages: [:store] }
 if Rails.env.production?
-  download_options.merge!(host: ENV.fetch("APPLICATION_HOST"))
+  download_options.merge!(host: "https://#{ENV.fetch("APPLICATION_HOST"}))
 end
 
 Shrine.plugin :download_endpoint, download_options
