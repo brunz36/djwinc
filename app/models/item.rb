@@ -21,6 +21,10 @@ class Item < ApplicationRecord
     %W{true false}
   end
 
+  def thumbnail_photo
+    photos.first
+  end
+
 private
   def ensure_not_referenced_by_any_line_item
     unless line_items.empty?

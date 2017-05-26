@@ -9,11 +9,7 @@
   <tbody>
     <% @cart.line_items.each do |line_item| %>
       <tr>
-        <%- line_item.item.photos.each_with_index do |photo, index| %>
-          <%- if index == 0 %>
-            <td class="col-xs-4 cart-img"><%= image_tag photo.image_url(:medium) %></td>
-          <% end %>
-        <% end %>
+        <td class="col-xs-4 cart-img"><%= image_tag line_item.item.thumbnail_photo.image_url(:medium) %></td>
         <td class="col-xs-4"><h5><%= line_item.item.name %></h5></td>
         <td class="col-xs-4 text-right"><h5><%= number_to_currency(line_item.item.price) %></h5><%= link_to "Remove Item", line_item_path(line_item), method: :delete, class:"pull-right" %></td>
         <% end %>

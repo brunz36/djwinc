@@ -6,11 +6,7 @@
 
 <div>
   <%- @order.line_items.each do |line_item| %>
-    <%- line_item.item.photos.each_with_index do |photo, index| %>
-      <%- if index == 0 %>
-        <%= image_tag photo.image_url(:small), class:"image-box" %>
-      <% end %>
-    <% end %>
+    <%= image_tag(line_item.thumbnail_photo.image_url(:medium), class:"image-box") %>
     <p><%= line_item.item.name %></p>
     <p><%= number_to_currency(line_item.item.price) %></p>
   <% end %>
