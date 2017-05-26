@@ -19,7 +19,7 @@
 <div>
   <h4>Sub Total: <%= number_to_currency(@order.order_sub_total) %></h4>
   <h4>Tax: <%= number_to_currency(@order.order_sales_tax) %></h4>
-  <h2>Total: <%= number_to_currency(@order.order_sub_total + @order.order_sub_total) %></h2>
+  <h2>Total: <%= number_to_currency(@order.order_sub_total + @order.order_sales_tax) %></h2>
 </div>
 
 <div>
