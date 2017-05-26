@@ -4,7 +4,7 @@ module Admin
 
     # GET /items
     def index
-      @items = Item.all
+      @items = Item.order(:created_at).page( params[:page]).per(10)
     end
 
     # GET /items/1

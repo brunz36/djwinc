@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
 
   # GET /orders
   def index
-    @orders = Order.all.order(created_at: :asc)
+    @orders = Order.all.order(created_at: :asc).page(params[:page]).per(10)
   end
 
   # GET /orders/1
@@ -43,10 +43,6 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1
   def update
     @order = Order.find(params[:id])
-
-    # if (order_params[:tracking_number] != @order.tracking_number) == true
-    #   OrderMailer.shipped(@order).deliver_later
-    # end
 
     if @order.update(order_params)
       if @order.tracking_number_previously_changed?
