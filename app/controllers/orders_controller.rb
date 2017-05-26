@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
 
   # GET /orders
   def index
-    @orders = Order.all
+    @orders = Order.all.order(created_at: :asc)
   end
 
   # GET /orders/1
@@ -42,8 +42,13 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1
   def update
     @order = Order.find(params[:id])
+
+    if (order_params[:tracking_number] != @order.tracking_number) == true
+      OrderMailer.shipped(@order).deliver_later
+    end
+
     if @order.update(order_params)
-      redirect_to @order, notice: 'Order was successfully updated.'
+      redirect_to orders_path, notice: 'Order was successfully updated.'
     else
       render :edit
     end
@@ -60,6 +65,6 @@ class OrdersController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def order_params
-    params.require(:order).permit(:first_name, :last_name, :address, :city, :state, :zip, :phone_number, :email, :pay_type)
+    params.require(:order).permit(:first_name, :last_name, :address, :city, :state, :zip, :phone_number, :email, :pay_type, :tracking_number)
   end
 end

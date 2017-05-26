@@ -1,5 +1,14 @@
-<h1>Dino's Jewelry Order Shipped</h1>
+<h1>Dino's Jewelry Shipping Confirmation</h1>
 
-<p>We just shipped you order</p>
+<h4>Hello <%= @order.first_name %> <%= @order.last_name %>,</h4>
+<h4>Your Order Number <%= @order.id %> is being shipped.</h4>
 
-<%= render @order.line_items %> 
+<div>
+  <p>These are the items you've ordered.</p>
+  <%- @order.line_items.each do |line_item| %>
+    <p><%= line_item.item.name %></p>
+  <% end %>
+</div>
+
+<p>Please follow the link to UPS.com</p>
+<p> Tracking Number: <%= link_to "#{@order.tracking_number}", "https://wwwapps.ups.com/tracking/tracking.cgi?tracknum=#{@order.tracking_number}", target: "_blank" %></p>

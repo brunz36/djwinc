@@ -3,10 +3,24 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style>
-      /* Email styles need to be inline */
+      body {
+        margin-top: 2em;
+        font-family: 'Josefin Sans', sans-serif;
+        background-color: #eee;
+        max-width: 1200px;
+        border-left: 5px solid #c8a851;
+        padding: 0 0 3em 2em;
+      }
+      h1 {
+        color: #c8a851;
+      }
+      .image-box {
+        padding: 1em;
+        border: 5px solid #000;
+      }
     </style>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
   </head>
-
   <body>
     <%= yield %>
   </body>

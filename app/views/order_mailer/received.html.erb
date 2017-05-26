@@ -1,7 +1,27 @@
-<h2>Dino's Jewelry Order Received</h2>
+<h1>Dino's Jewelry Order Received</h1>
 
-<h5>Dear <%= order.first_name %></h5>
+<h4>Thank you for ordering <%= @order.first_name %> <%= @order.last_name %></h4>
+<h4>Your Order Number is: <%= @order.id %></h4>
+<h4>You ordered the following items.</h4>
 
-<p>You ordered the following items.</p>
+<div>
+  <%- @order.line_items.each do |line_item| %>
+    <%- line_item.item.photos.each_with_index do |photo, index| %>
+      <%- if index == 0 %>
+        <%= image_tag photo.image_url(:small), class:"image-box" %>
+      <% end %>
+    <% end %>
+    <p><%= line_item.item.name %></p>
+    <p><%= number_to_currency(line_item.item.price) %></p>
+  <% end %>
+</div>
 
-<%= render @order.line_items %>
+<div>
+  <h4>Sub Total: <%= number_to_currency(@order.order_sub_total) %></h4>
+  <h4>Tax: <%= number_to_currency(@order.order_sales_tax) %></h4>
+  <h2>Total: <%= number_to_currency(@order.order_sub_total + @order.order_sales_tax) %></h2>
+</div>
+
+<div>
+  <p>You will receive an email soon when you order is shipped. Thank you <%= @order.first_name.capitalize %> for using Dino's Jewelry.</p>
+</div>
