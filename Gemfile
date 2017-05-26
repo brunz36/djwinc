@@ -64,6 +64,9 @@ gem 'money-rails', '~>1'
 # PAGINATION
 gem 'kaminari', '~> 1.0', '>= 1.0.1'
 
+# SENDGRID MAILER
+gem 'sendgrid-ruby', '~> 4.3', '>= 4.3.3'
+
 group :development do
   gem 'awesome_print'
   gem 'dotenv-rails'
