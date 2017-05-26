@@ -28,4 +28,10 @@ class Order < ApplicationRecord
     end
     sales_tax
   end
+
+  # def move_items_to_portfolio
+  #   line_items.each do |line_item|
+  #     line_item.item.in_stock = false
+  #   end
+  # end
 end

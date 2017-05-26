@@ -33,6 +33,7 @@ class OrdersController < ApplicationController
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
       OrderMailer.received(@order).deliver_later
+      # @order.move_items_to_portfolio
       redirect_to store_index_path
     else
       render :new
