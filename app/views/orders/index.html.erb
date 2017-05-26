@@ -32,7 +32,7 @@
                   <h5><%= order.email %></h5>
                 </div>
                 <div class="col-xs-4">
-                  <h5><%= number_to_currency(order.order_sub_total + order.order_sales_tax) %></h5>
+                  <h5><%= number_to_currency(order.sub_total + order.sales_tax) %></h5>
                 </div>
               </div>
             </a>
@@ -95,7 +95,7 @@
                     Sub-Total:
                   </div>
                   <div class="col-xs-8">
-                    <%= order.order_sub_total %>
+                    <%= order.sub_total %>
                   </div>
                 </li>
                 <li class="col-xs-12">
@@ -103,7 +103,7 @@
                     Tax:
                   </div>
                   <div class="col-xs-8">
-                    <%= order.order_sales_tax %>
+                    <%= order.sales_tax %>
                   </div>
                 </li>
                 <li class="col-xs-12">

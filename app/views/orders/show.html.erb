@@ -44,11 +44,11 @@
   <% end %>
 
   <dt>Sub Total:</dt>
-  <dd><%= number_to_currency(@order.order_sub_total) %></dd>
+  <dd><%= number_to_currency(@order.sub_total) %></dd>
 
   <dt>Tax:</dt>
-  <dd><%= number_to_currency(@order.order_sales_tax) %></dd>
+  <dd><%= number_to_currency(@order.sales_tax) %></dd>
 
   <dt>Total:</dt>
-  <dd><%= number_to_currency(@order.order_sub_total + @order.order_sales_tax) %></dd>
+  <dd><%= number_to_currency(@order.sub_total + @order.sales_tax) %></dd>
 </dl>

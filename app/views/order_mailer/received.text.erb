@@ -9,8 +9,8 @@ You ordered the following items.
   <%= number_to_currency(line_item.item.price) %>
 <% end %>
 
-Sub Total: <%= number_to_currency(@order.order_sub_total) %>
-Tax: <%= number_to_currency(@order.order_sales_tax) %>
-Total: <%= number_to_currency(@order.order_sub_total + @order.order_sales_tax) %>
+Sub Total: <%= number_to_currency(@order.sub_total) %>
+Tax: <%= number_to_currency(@order.sales_tax) %>
+Total: <%= number_to_currency(@order.sub_total + @order.sales_tax) %>
 
 You will receive an email soon when you order is shipped. Thank you <%= @order.first_name.capitalize %> for using Dino's Jewelry.

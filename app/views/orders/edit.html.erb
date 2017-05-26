@@ -105,13 +105,13 @@
         </tbody>
         <tfoot>
           <tr>
-            <td class="col-xs-12 text-right"><h3 class="order-total-border">Sub Total: <%= number_to_currency(@order.order_sub_total) %></h3></td>
+            <td class="col-xs-12 text-right"><h3 class="order-total-border">Sub Total: <%= number_to_currency(@order.sub_total) %></h3></td>
           </tr>
           <tr>
-            <td class="col-xs-12 text-right"><h3 class="order-total-border">Sales Tax: <%= number_to_currency(@order.order_sales_tax) %></h3></td>
+            <td class="col-xs-12 text-right"><h3 class="order-total-border">Sales Tax: <%= number_to_currency(@order.sales_tax) %></h3></td>
           </tr>
           <tr>
-            <td class="col-xs-12 text-right"><h3 class="order-total-border">Total: <%= number_to_currency(@order.order_sales_tax + @order.order_sub_total) %></h3></td>
+            <td class="col-xs-12 text-right"><h3 class="order-total-border">Total: <%= number_to_currency(@order.sales_tax + @order.sub_total) %></h3></td>
           </tr>
         </tfoot>
       </table>

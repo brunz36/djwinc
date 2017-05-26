@@ -44,11 +44,14 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
 
-    if (order_params[:tracking_number] != @order.tracking_number) == true
-      OrderMailer.shipped(@order).deliver_later
-    end
+    # if (order_params[:tracking_number] != @order.tracking_number) == true
+    #   OrderMailer.shipped(@order).deliver_later
+    # end
 
     if @order.update(order_params)
+      if @order.tracking_number_previously_changed?
+        OrderMailer.shipped(@order).deliver_later
+      end
       redirect_to orders_path, notice: 'Order was successfully updated.'
     else
       render :edit
