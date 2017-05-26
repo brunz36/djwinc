@@ -10,12 +10,12 @@ Shrine.storages = {
  store: Shrine::Storage::Sql.new(database: DB, table: :files)
 }
 
-download_options = { prefix: "attachments" }
+download_options = { prefix: "attachments", storages: [:store] }
 if Rails.env.production?
   download_options.merge!(host: ENV.fetch("APPLICATION_HOST"))
 end
 
-Shrine.plugin :download_endpoint, storages: [:store], download_options
+Shrine.plugin :download_endpoint, download_options
 
 Shrine.plugin :activerecord
 Shrine.plugin :cached_attachment_data
