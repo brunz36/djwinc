@@ -67,6 +67,9 @@ gem 'kaminari', '~> 1.0', '>= 1.0.1'
 # SENDGRID MAILER
 gem 'sendgrid-ruby', '~> 4.3', '>= 4.3.3'
 
+# SOCIAL SHARE BUTTON
+gem 'social-share-button'
+
 group :development do
   gem 'awesome_print'
   gem 'dotenv-rails'
