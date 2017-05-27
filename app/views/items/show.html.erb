@@ -46,6 +46,6 @@
 
 <div class="social-button-row row">
   <div class="col-xs-6 col-xs-offset-3 text-center">
-    <%= social_share_button_tag(@item.name, url: "https://brunz36-dinos-jewelry.herokuapp.com/items/#{@item.id}", image: "#{@item.thumbnail_photo.image_url(:medium)}") %>
+    <%= social_share_button_tag(@item.name, url: "https://brunz36-dinos-jewelry.herokuapp.com/items/#{@item.id}", image: "#{@item.thumbnail_photo.image_url(:medium)}", popup: true) %>
   </div>
 </div>
