@@ -1,0 +1,40 @@
+<h1>Search for Custom Creation</h1>
+
+
+<%= form_for(@search, html: { class: "form-horizontal", role: "form" }) do |s| %>
+
+  <%# Alert showing errors for this form %>
+  <% if @search.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h4>
+
+      <ul>
+      <% @search.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= s.label :keywords %>
+    <%= s.text_field :keywords %>
+  </div>
+
+  <div class="field">
+    <%= s.label :category %>
+    <%= s.select(:category, Item.categories.map { |category| [ category, category ] }, prompt: 'Select Category', class: "form-control") %>
+  </div>
+
+  <div class="field">
+    <%= s.label :min_price, "Min Price" %> - <%= s.number_field :min_price, size: 12 %>
+    <%= s.label :max_price, "Max Price" %> - <%= s.number_field :max_price, size: 12 %>
+  </div>
+
+  <div class="actions">
+    <%= s.submit "Search", class:"btn btn-primary" %>
+  </div>
+<% end %>
+
+<%= link_to "Back", store_index_path %>
