@@ -43,3 +43,9 @@
     <%= button_to 'Add to Cart', line_items_path(item_id: @item), class:"pull-right cart-button" %>
   </div>
 </div>
+
+<div class="social-button-row row">
+  <div class="col-xs-6 col-xs-offset-3 text-center">
+    <%= social_share_button_tag(@item.name, url: "https://brunz36-dinos-jewelry.herokuapp.com/items/#{@item.id}", image: "https://brunz36-dinos-jewelry.herokuapp.com/#{@item.thumbnail_photo.image_url(:medium)}") %>
+  </div>
+</div>

@@ -253,6 +253,34 @@ nav {
   }
 }
 
+// SOCIAL BUTTONS
+.social-button-row {
+  margin-top: 1.5em;
+  .social-share-button-twitter {
+    width: 25px;
+    height: 25px;
+    background: image-url("twitter-logo.png") no-repeat;
+    background-size: contain;
+    padding: 0 1em;
+  }
+
+  .social-share-button-facebook {
+    width: 25px;
+    height: 25px;
+    background: image-url("fb-logo.png") no-repeat;
+    background-size: contain;
+    padding: 0 1em;
+  }
+
+  .social-share-button-pinterest {
+    width: 25px;
+    height: 25px;
+    background: image-url("pinterest-logo.png") no-repeat;
+    background-size: contain;
+    padding: 0 1em;
+  }
+}
+
 @media only screen and (min-width: 768px) {
   .application-body {
     padding-bottom: 15em;
