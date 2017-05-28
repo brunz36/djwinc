@@ -281,6 +281,20 @@ nav {
   }
 }
 
+// TERMS & CONDITIONS
+.modal-header {
+  padding: 0;
+  span {
+    font-size: 200%;
+    color: #000;
+  }
+  h3 {
+    padding: 0.5em;
+    background-color: #7f7f7f;
+    color: #c8a851;
+  }
+}
+
 @media only screen and (min-width: 768px) {
   .application-body {
     padding-bottom: 15em;

@@ -4,6 +4,7 @@ class Order < ApplicationRecord
   validates :first_name, :last_name, :address, :city, :email, :state, :pay_type, presence: true
   validates :zip, length: { is: 5 }, numericality: true
   validates :phone_number, numericality: true
+  validates :terms_conditions, acceptance: { accept: '1' }
 
   enum pay_type: {
     "Credit Card" => 0
