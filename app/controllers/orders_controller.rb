@@ -29,6 +29,10 @@ class OrdersController < ApplicationController
       item.cart_id = nil
     end
 
+    @order.sub_total = @current_cart.sub_total
+    @order.sales_tax = @current_cart.sales_tax
+    @order.total = @current_cart.total
+
     if @order.save
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil

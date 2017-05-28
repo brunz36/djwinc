@@ -16,4 +16,9 @@ class ApplicationRecord < ActiveRecord::Base
     end
     sales_tax
   end
+
+  def total
+    total = 0
+    total = sub_total + sales_tax
+  end
 end

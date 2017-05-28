@@ -36,7 +36,7 @@
     <tr>
       <td colspan='3'>
         <button type="button" class="btn btn-default pull-right">
-          <%= link_to_if @cart.line_items, "Proceed To Checkout", new_order_path %></span></td>
+          <%= link_to_if @cart.line_items.any?, "Proceed To Checkout", new_order_path %></span></td>
         </button>
       </td>
     </tr>
