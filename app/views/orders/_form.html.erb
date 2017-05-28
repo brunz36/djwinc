@@ -64,11 +64,18 @@
 
   <%# pay_type & tracking_number if user %>
   <div class="form-group">
-    <%= f.label :pay_type, "Pay Type:",  class: "col-xs-3 col-sm-2 control-label" %>
-    <div class="col-xs-9 col-sm-10">
+    <%= f.label :pay_type, "Pay Type:",  class: "col-sm-2 control-label" %>
+    <div class="col-sm-4">
       <%= f.select :pay_type, Order.pay_types.keys, prompt: 'Payment Method', class: "form-control" %>
     </div>
+    <button type="button" class="btn" data-toggle="modal" data-target="#terms-conditions">
+      <%= f.label :terms_conditions, "I Agree To Terms & Conditions", class:"col-sm-3 control-label" %>
+    </button>
+    <div class="col-sm-1">
+      <%= f.check_box :terms_conditions, class:"form-control"  %>
+    </div>
   </div>
+
 
   <%- if logged_in? %>
     <div class="form-group">
