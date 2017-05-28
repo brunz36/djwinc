@@ -1,6 +1,5 @@
 <h1>Search for Custom Creation</h1>
 
-
 <%= form_for(@search, html: { class: "form-horizontal", role: "form" }) do |s| %>
 
   <%# Alert showing errors for this form %>
@@ -36,5 +35,3 @@
     <%= s.submit "Search", class:"btn btn-primary" %>
   </div>
 <% end %>
-
-<%= link_to "Back", store_index_path %>

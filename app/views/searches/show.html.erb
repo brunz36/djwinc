@@ -1,12 +1,8 @@
-<div class="container">
-  <div class="row">
-    <span><%= link_to "Search", new_search_path %></span>
-  </div>
-</div>
 
 <% if @search.search_items.blank? %>
-  <h4>No Records Found</h4>
+  <h2>No Records Found</h2>
   <% else %>
+  <h2>Your Search Yielded <%= @search.search_items.count %> Creations</h2>
   <div class="row">
     <%- @search.search_items.each do |item| %>
       <div class="col-xs-12 col-sm-6">
