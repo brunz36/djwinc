@@ -1,0 +1,17 @@
+
+<% if @search.search_items.blank? %>
+  <h2>No Records Found</h2>
+  <% else %>
+  <h2>Your Search Yielded <%= @search.search_items.count %> Creations</h2>
+  <div class="row">
+    <%- @search.search_items.each do |item| %>
+      <div class="col-xs-12 col-sm-6">
+        <div class="index-img">
+          <%= link_to item, class:"thumbnail" do %>
+            <%= image_tag item.thumbnail_photo.image_url(:medium) %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
