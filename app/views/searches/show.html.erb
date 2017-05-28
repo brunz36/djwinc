@@ -1,8 +1,10 @@
 
 <% if @search.search_items.blank? %>
-  <h2>No Records Found</h2>
+  <h2>Sorry no Creations met your requirements</h2>
+  <%= link_to "Search Again?", new_search_path %>
   <% else %>
   <h2>Your Search Yielded <%= @search.search_items.count %> Creations</h2>
+  <%= link_to "Search Again?", new_search_path %>
   <div class="row">
     <%- @search.search_items.each do |item| %>
       <div class="col-xs-12 col-sm-6">

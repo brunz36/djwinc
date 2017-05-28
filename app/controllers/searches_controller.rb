@@ -8,6 +8,12 @@ class SearchesController < ApplicationController
       Search.delete_all()
     end
     @search = Search.create(search_params)
+    if @search.max_price.nil?
+      @search.max_price = 0
+    end
+    if @search.min_price.nil?
+      @search.min_price = 0
+    end
     @search.max_price *= 100
     @search.min_price *= 100
     @search.save
