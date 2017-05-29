@@ -49,3 +49,11 @@
     <%= social_share_button_tag(@item.name, url: "https://brunz36-dinos-jewelry.herokuapp.com/items/#{@item.id}", image: "#{@item.thumbnail_photo.image_url(:medium)}", popup: true) %>
   </div>
 </div>
+
+<% if @item.appraisal_data? %>
+  <%= link_to "Appraisal", asset_path(@item.appraisal_url), target: "_blank" %>
+<% end %>
+
+<% if @item.certification_data? %>
+  <%= link_to "Certification", asset_path(@item.certification_url), target: "_blank" %>
+<% end %>
