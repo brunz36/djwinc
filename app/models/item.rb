@@ -9,6 +9,9 @@ class Item < ApplicationRecord
 
   monetize :price_cents
 
+  include FileUploader[:appraisal]
+  include FileUploader[:certification]
+
   def self.categories
     %W{Rings Earrings Bracelets Necklaces Other}
   end

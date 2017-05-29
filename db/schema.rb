@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170528182715) do
+ActiveRecord::Schema.define(version: 20170529005206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,16 +29,16 @@ ActiveRecord::Schema.define(version: 20170528182715) do
     t.string   "category"
     t.string   "metal"
     t.string   "center_stone"
-    t.text     "certification"
     t.string   "stones"
     t.integer  "size"
-    t.text     "appraisal"
     t.text     "description"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "name"
-    t.boolean  "in_stock",      default: true
+    t.boolean  "in_stock",           default: true
     t.integer  "price_cents"
+    t.text     "appraisal_data"
+    t.text     "certification_data"
   end
 
   create_table "line_items", force: :cascade do |t|
