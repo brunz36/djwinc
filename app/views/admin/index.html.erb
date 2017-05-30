@@ -1,8 +1,22 @@
-<h1>Welcome</h1>
+<h1>Welcome <%= current_user.name %></h1>
 
-<p>It's <%= Time.now %></p>
-<p>We have <%= pluralize(@total_orders, 'order') %></p>
+<h4>It's <%= Time.now.strftime('%F') %></h4>
+<h4>We have <%= pluralize(@total_orders, 'order') %>.</h4>
 
-<%= link_to 'Items', admin_items_path %>
-<%= link_to 'Orders', orders_path %>
-<%= link_to 'Admin Logout', logout_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+<div class="container">
+    <div class="admin-button col-xs-3 col-sm-1 text-center">
+      <%= link_to admin_items_path do %>
+        <span>Items</span>
+      <% end %>
+    </div>
+    <div class="admin-button col-xs-3 col-sm-1 text-center">
+      <%= link_to orders_path do %>
+        <span>Orders</span>
+      <% end %>
+    </div>
+    <div class="admin-button col-xs-3 col-sm-1 text-center">
+      <%= link_to logout_path, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <span>Admin Logout</span>
+      <% end %>
+    </div>
+</div>
