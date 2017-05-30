@@ -1,3 +1,7 @@
+.bruno {
+  border: 2px solid red;
+}
+
 // FOR GLOBAL HTML
 html {
   height: 100%;
@@ -14,6 +18,11 @@ body {
 
 img {
   background-color: #f2f2f2;
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
 }
 
 .gold-text {
@@ -199,6 +208,23 @@ nav {
   border-bottom: 2px solid #c8a851;
 }
 
+.item-bottom-row {
+  padding: 2em 0;
+
+  .add-to-cart {
+    padding-top: 3em;
+  }
+  span {
+    border: 2px solid #333;
+    padding: 1em;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
 // CART
 .cart-button {
   margin: 1em 1em 0 1em;
@@ -223,6 +249,7 @@ nav {
   a {
     color: inherit;
     text-decoration: none;
+    margin: 0 0.5em;
   }
   span {
     border: 2px solid #333;
@@ -239,9 +266,11 @@ nav {
   padding: 1em;
   border-radius: 0;
   text-decoration: none;
+  background-color: inherit;
 }
 
 .order-index {
+  font-size: 110%;
   li {
     list-style: none;
     padding: none;
@@ -253,9 +282,35 @@ nav {
   }
 }
 
+.order-terms {
+  border: 2px solid #333;
+  padding: 1em;
+  border-radius: 0;
+  text-decoration: none;
+  background-color: inherit;
+  margin-top: 2em;
+}
+
+.order-list {
+  font-size: 120%;
+  dt {
+    font-size-adjust: auto;
+  }
+}
+
+.order-index-icons {
+  div {
+    margin-top: 1em;
+    span {
+      color: #000;
+    }
+  }
+}
+
 // SOCIAL BUTTONS
 .social-button-row {
   margin-top: 1.5em;
+  padding-top: 1em;
   .social-share-button-twitter {
     width: 25px;
     height: 25px;
@@ -292,6 +347,78 @@ nav {
     padding: 0.5em;
     background-color: #7f7f7f;
     color: #c8a851;
+  }
+}
+
+.modal-body-terms {
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+// SEARCH
+.search-box {
+  div {
+    margin: 0.5em 0;
+  }
+  #search_keywords {
+    width: 50vw;
+  }
+}
+
+.search-button {
+  border: 2px solid #333;
+  padding: 1em;
+  background-color: inherit;
+  margin: 1em 2em 0 0;
+  border-radius: 0;
+  font-size: 120%;
+}
+
+.search-again {
+  border: 2px solid #333;
+  padding: 1em;
+  background-color: inherit;
+  border-radius: 0;
+  font-size: 120%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.search-header {
+  margin-bottom: 2em;
+  div {
+    margin-top: 0.5em;
+  }
+}
+
+// LOGIN
+.login-box {
+  margin-top: 2em;
+  border: 5px solid #333;
+  padding: 2em;
+  div {
+    padding: 0.5em 0;
+  }
+  .submit-login {
+    border: 2px solid #333;
+    background-color: inherit;
+    padding: 0.5em;
+    border-radius: 0;
+  }
+}
+
+// ADMIN INDEX
+.admin-button {
+  border: 2px solid #333;
+  padding: 0.5em;
+  background-color: inherit;
+  height: 4em;
+  border-radius: 0;
+  font-size: 120%;
+  margin: 0.5em;
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 }
 
@@ -360,5 +487,27 @@ nav {
     img {
       height: 150px;
     }
+  }
+
+  .item-bottom-row {
+    .add-to-cart {
+      padding-top: 0;
+    }
+  }
+
+  .social-button-row {
+    padding-bottom: 2em;
+  }
+
+  .order-terms {
+    margin-top: 0;
+  }
+
+  .search-box {
+    font-size: 120%;
+  }
+
+  .login-box {
+    font-size: 120%;
   }
 }

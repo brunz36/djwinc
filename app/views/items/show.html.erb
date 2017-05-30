@@ -40,7 +40,27 @@
     <div class="item-row">
       <h5><%= number_to_currency(@item.price) %></h5>
     </div>
-    <%= button_to 'Add to Cart', line_items_path(item_id: @item), class:"pull-right cart-button" %>
+    <div class="item-bottom-row text-center">
+      <div class="col-xs-6 col-sm-4">
+        <% if @item.appraisal_data? %>
+          <%= link_to asset_path(@item.appraisal_url), target: "_blank" do %>
+            <span>Appraisal</span>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col-xs-6 col-sm-4">
+        <% if @item.certification_data? %>
+          <%= link_to asset_path(@item.certification_url), target: "_blank" do %>
+            <span>Certificate</span>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col-xs-12 col-sm-4 add-to-cart">
+      <%= link_to line_items_path(item_id: @item), method: 'post', class:"cart-button" do %>
+        <span>Add To Cart</span>
+      <% end %>
+    </div>
+    </div>
   </div>
 </div>
 
@@ -49,11 +69,3 @@
     <%= social_share_button_tag(@item.name, url: "https://brunz36-dinos-jewelry.herokuapp.com/items/#{@item.id}", image: "#{@item.thumbnail_photo.image_url(:medium)}", popup: true) %>
   </div>
 </div>
-
-<% if @item.appraisal_data? %>
-  <%= link_to "Appraisal", asset_path(@item.appraisal_url), target: "_blank" %>
-<% end %>
-
-<% if @item.certification_data? %>
-  <%= link_to "Certification", asset_path(@item.certification_url), target: "_blank" %>
-<% end %>

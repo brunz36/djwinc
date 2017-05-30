@@ -4,21 +4,32 @@
   <% end %>
 
   <%= form_tag do %>
+  <div class="container text-center col-xs-12 col-sm-4 col-sm-offset-4 login-box">
     <h3>Please Log In</h3>
 
-    <div class="">
-      <%= label_tag :name, 'Name:' %>
-      <%= text_field_tag :name, params[:name] %>
+    <div class="row">
+      <div class="col-xs-3 col-sm-2">
+        <%= label_tag :name, 'Name:' %>
+      </div>
+      <div class="col-xs-9 col-sm-10">
+        <%= text_field_tag :name, params[:name] %>
+      </div>
     </div>
 
-    <div class="">
-      <%= label_tag :password, 'Password:' %>
-      <%= password_field_tag :password, params[:password] %>
+    <div class="row">
+      <div class="col-xs-3 col-sm-2">
+        <%= label_tag :password, 'Password:' %>
+      </div>
+      <div class="col-xs-9 col-sm-10">
+        <%= password_field_tag :password, params[:password] %>
+      </div>
     </div>
 
-    <div class="">
-      <%= submit_tag "Login" %>
+    <div class="row">
+      <div class="pull-right">
+        <%= submit_tag "Login", class:"submit-login" %>
+      </div>
     </div>
-
   <% end %>
+  </div>
 </div>

@@ -1,16 +1,14 @@
-<div class="page-header">
-  <%= link_to orders_path, class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+<div class="page-header order-header">
+  <%= link_to orders_path, class: 'pull-right' do %>
+    <span>Back</span>
   <% end %>
-  <%= link_to edit_order_path(@order), class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
+  <%= link_to edit_order_path(@order), class: 'pull-right' do %>
+    <span>Edit</span>
   <% end %>
-  <h1>Show order</h1>
+  <h1>Order Details</h1>
 </div>
 
-<dl class="dl-horizontal">
+<dl class="dl-horizontal order-list">
   <dt>First name:</dt>
   <dd><%= @order.first_name %></dd>
 
@@ -50,5 +48,5 @@
   <dd><%= number_to_currency(@order.sales_tax) %></dd>
 
   <dt>Total:</dt>
-  <dd><%= number_to_currency(@order.sub_total + @order.sales_tax) %></dd>
+  <dd><%= number_to_currency(@order.total) %></dd>
 </dl>
