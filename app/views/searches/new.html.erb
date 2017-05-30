@@ -1,4 +1,4 @@
-<h1>Search for Custom Creation</h1>
+<h1 class="text-center">Search for Your Custom Creation</h1>
 
 <%= form_for(@search, html: { class: "form-horizontal", role: "form" }) do |s| %>
 
@@ -16,22 +16,34 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= s.label :keywords %>
-    <%= s.text_field :keywords %>
+  <div class="container search-box">
+    <div class="col-xs-12">
+      <div class="field text-center">
+        <%= s.label :keywords, "Keywords: " %>
+        <%= s.text_field :keywords %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4 text-center">
+      <div class="field">
+        <%= s.label :category, "Category: " %>
+        <%= s.select(:category, Item.categories.map { |category| [ category, category ] }, prompt: 'Select Category', class: "form-control") %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="field">
+        <%= s.label :min_price, "Min Price: " %> <%= s.number_field :min_price, size: 12 %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="field">
+        <%= s.label :max_price, "Max Price: " %> <%= s.number_field :max_price, size: 12 %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= s.label :category %>
-    <%= s.select(:category, Item.categories.map { |category| [ category, category ] }, prompt: 'Select Category', class: "form-control") %>
-  </div>
-
-  <div class="field">
-    <%= s.label :min_price, "Min Price" %> - <%= s.number_field :min_price, size: 12 %>
-    <%= s.label :max_price, "Max Price" %> - <%= s.number_field :max_price, size: 12 %>
-  </div>
-
-  <div class="actions">
-    <%= s.submit "Search", class:"btn btn-primary" %>
+  <div class="row">
+    <div class="actions pull-right">
+      <%= s.submit "Search", class:"search-button" %>
+    </div>
   </div>
 <% end %>
