@@ -373,7 +373,21 @@ nav {
   }
 }
 
-
+// LOGIN
+.login-box {
+  margin-top: 2em;
+  border: 5px solid #333;
+  padding: 2em;
+  div {
+    padding: 0.5em 0;
+  }
+  .submit-login {
+    border: 2px solid #333;
+    background-color: inherit;
+    padding: 0.5em;
+    border-radius: 0;
+  }
+}
 @media only screen and (min-width: 768px) {
   .application-body {
     padding-bottom: 15em;
@@ -456,6 +470,10 @@ nav {
   }
 
   .search-box {
+    font-size: 120%;
+  }
+
+  .login-box {
     font-size: 120%;
   }
 }
