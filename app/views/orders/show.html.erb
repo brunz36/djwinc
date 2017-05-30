@@ -50,5 +50,5 @@
   <dd><%= number_to_currency(@order.sales_tax) %></dd>
 
   <dt>Total:</dt>
-  <dd><%= number_to_currency(@order.sub_total + @order.sales_tax) %></dd>
+  <dd><%= number_to_currency(@order.total) %></dd>
 </dl>

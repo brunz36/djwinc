@@ -11,7 +11,7 @@ class LineItemsController < ApplicationController
     current_cart = @current_cart
 
     if current_cart.items.include?(chosen_item)
-      redirect_to chosen_item, notice: 'Line item was already in the cart'
+      redirect_to current_cart, notice: 'You already had this item in your cart.'
       return
     end
 

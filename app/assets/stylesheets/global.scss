@@ -1,3 +1,7 @@
+.bruno {
+  border: 2px solid red;
+}
+
 // FOR GLOBAL HTML
 html {
   height: 100%;
@@ -216,10 +220,6 @@ nav {
   }
 }
 
-.bruno {
-  border: 2px solid red;
-}
-
 // CART
 .cart-button {
   margin: 1em 1em 0 1em;
@@ -260,6 +260,7 @@ nav {
   padding: 1em;
   border-radius: 0;
   text-decoration: none;
+  background-color: inherit;
 }
 
 .order-index {
@@ -272,6 +273,15 @@ nav {
     text-decoration: none;
     color: #333;
   }
+}
+
+.order-terms {
+  border: 2px solid #333;
+  padding: 1em;
+  border-radius: 0;
+  text-decoration: none;
+  background-color: inherit;
+  margin-top: 2em;
 }
 
 // SOCIAL BUTTONS
@@ -315,6 +325,11 @@ nav {
     background-color: #7f7f7f;
     color: #c8a851;
   }
+}
+
+.modal-body-terms {
+  overflow-y: auto;
+  max-height: 80vh;
 }
 
 @media only screen and (min-width: 768px) {
@@ -392,5 +407,9 @@ nav {
 
   .social-button-row {
     padding-bottom: 2em;
+  }
+
+  .order-terms {
+    margin-top: 0;
   }
 }
