@@ -111,7 +111,7 @@
             <td class="col-xs-12 text-right"><h3 class="order-total-border">Sales Tax: <%= number_to_currency(@current_cart.sales_tax) %></h3></td>
           </tr>
           <tr>
-            <td class="col-xs-12 text-right"><h3 class="order-total-border">Total: <%= number_to_currency(@current_cart.sales_tax + @current_cart.sub_total) %></h3></td>
+            <td class="col-xs-12 text-right"><h3 class="order-total-border">Total: <%= number_to_currency(@current_cart.total) %></h3></td>
           </tr>
         </tfoot>
       </table>
