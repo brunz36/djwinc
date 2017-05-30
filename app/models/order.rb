@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   has_many :line_items, dependent: :destroy
+  has_many :items, through: :line_items
 
   validates :first_name, :last_name, :address, :city, :email, :state, :pay_type, presence: true
   validates :zip, length: { is: 5 }, numericality: true

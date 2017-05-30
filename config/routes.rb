@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :line_items
   resources :carts
   resources :searches
+  resources :charges
 
   # For my customers
   resources :items do

@@ -70,6 +70,9 @@ gem 'sendgrid-ruby', '~> 4.3', '>= 4.3.3'
 # SOCIAL SHARE BUTTON
 gem 'social-share-button'
 
+# CC PROCESSING
+gem 'stripe', '~> 2.11'
+
 group :development do
   gem 'awesome_print'
   gem 'dotenv-rails'

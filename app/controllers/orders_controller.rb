@@ -33,6 +33,7 @@ class OrdersController < ApplicationController
     @order.sales_tax = @current_cart.sales_tax
     @order.total = @current_cart.total
 
+    ## if logic to charges controller
     if @order.save
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
