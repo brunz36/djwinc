@@ -4,19 +4,21 @@
 <h4>We have <%= pluralize(@total_orders, 'order') %>.</h4>
 
 <div class="container">
-    <div class="admin-button col-xs-3 col-sm-1 text-center">
+  <div class="col-xs-12">
+    <div class="admin-button col-xs-3 col-sm-2 text-center">
       <%= link_to admin_items_path do %>
         <span>Items</span>
       <% end %>
     </div>
-    <div class="admin-button col-xs-3 col-sm-1 text-center">
+    <div class="admin-button col-xs-3 col-sm-2 text-center">
       <%= link_to orders_path do %>
         <span>Orders</span>
       <% end %>
     </div>
-    <div class="admin-button col-xs-3 col-sm-1 text-center">
+    <div class="admin-button col-xs-3 col-sm-2 text-center">
       <%= link_to logout_path, method: :delete, data: { confirm: 'Are you sure?' } do %>
         <span>Admin Logout</span>
       <% end %>
     </div>
+  </div>
 </div>
