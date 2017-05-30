@@ -39,7 +39,7 @@ class OrdersController < ApplicationController
       session[:cart_id] = nil
       OrderMailer.received(@order).deliver_later
       # @order.move_items_to_portfolio
-      redirect_to store_index_path
+      redirect_to new_charge_path(order_id: @order.id)
     else
       render :new
     end
