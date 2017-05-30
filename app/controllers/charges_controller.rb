@@ -4,10 +4,8 @@ class ChargesController < ApplicationController
   end
 
   def create
-    # Figure out what order this is for
     @order = Order.find(params[:order_id])
 
-    # Get the amount from that
     @amount = @order.total_cents
 
     customer = Stripe::Customer.create(

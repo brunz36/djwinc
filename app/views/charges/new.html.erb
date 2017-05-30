@@ -1,20 +1,26 @@
-<%= form_tag charges_path do %>
-  <article>
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
-      </div>
+<div class="container">
+  <div class="pay-box col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4 pay-box text-center">
+    <%= form_tag charges_path do %>
+      <article>
+        <%= text_field_tag :order_id, @order.id, style:"display:none" %>
+        <% if flash[:error].present? %>
+          <div id="error_explanation">
+            <p><%= flash[:error] %></p>
+          </div>
+        <% end %>
+        <label class="amount">
+          <ul>
+            <li><%= @order.first_name%> <%= @order.last_name %></li>
+            <li>Total Amount: $<%= @order.total %></li>
+          </ul>
+        </label>
+      </article>
+
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="Dino's Jewelry <%= number_to_currency(@order.total) %>"
+              data-amount="<%= @order.total_cents %>"
+              data-locale="auto"></script>
     <% end %>
-    <label class="amount">
-      <span>Amount: $<%= @order.total %></span>
-    </label>
-  </article>
-
-  <%= text_field_tag :order_id, @order.id %>
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount="<%= @order.total_cents %>"
-          data-locale="auto"></script>
-<% end %>
+  </div>
+</div>

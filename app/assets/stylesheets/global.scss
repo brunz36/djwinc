@@ -293,8 +293,6 @@ nav {
   }
 }
 
-
-
 .order-list {
   font-size: 120%;
   dt {
@@ -424,6 +422,26 @@ nav {
     text-decoration: none;
     color: inherit;
   }
+}
+
+// CHARGES
+.pay-box {
+  font-size: 120%;
+  margin-top: 2em;
+  padding: 2em;
+  border: 5px solid #000;
+  ul {
+    padding: 0;
+    li {
+      list-style: none;
+    }
+  }
+}
+
+button.stripe-button-el {
+  border: 2px solid #333;
+  background-color: inherit;
+  border-radius: 0;
 }
 
 @media only screen and (min-width: 768px) {
