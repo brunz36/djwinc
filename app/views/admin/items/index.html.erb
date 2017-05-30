@@ -3,7 +3,56 @@
     <span class="glyphicon glyphicon-plus"></span>
     New Item
   <% end %>
-  <h1 Listing>items</h1>
+  <h1 Listing>Dino's Jewelry Inventory</h1>
+</div>
+
+
+<div class="container">
+  <div class="row text-center">
+    <div class="col-xs-4">
+      <h4>Category</h4>
+    </div>
+    <div class="col-xs-4">
+      <h4>Name</h4>
+    </div>
+    <div class="col-xs-4">
+      <h4>Price</h4>
+    </div>
+  </div>
+  <div id="accordion" role="tablist" aria-multiselectable="true">
+    <%- @items.each_with_index do |item, index| %>
+      <div class="card">
+        <div class="card-header" role="tab" id="heading<%= index %>">
+          <h5 class="mb-0">
+            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= index %>" aria-expanded="false" aria-controls="collapse<%= index %>">
+              <div class="row text-center">
+                <div class="col-xs-4">
+                  <h5><%= item.category %></h5>
+                </div>
+                <div class="col-xs-4">
+                  <h5><%= item.name %></h5>
+                </div>
+                <div class="col-xs-4">
+                  <h5><%= number_to_currency(item.price) %></h5>
+                </div>
+              </div>
+            </a>
+          </h5>
+        </div>
+      </div>
+      <div id="collapse<%= index %>" class="collapse" role="tabpanel" aria-labelledby="heading<%= index %>">
+        <div class="card-block">
+          <ul class="row text-left">
+            <li></li>
+          </ul>
+        </div>
+      </div>
+  </div>
+
+
+
+
+
 </div>
 
 <div class="table-responsive">
@@ -14,10 +63,7 @@
         <th>Name</th>
         <th>In Stock</th>
         <th>Metal</th>
-        <th>Center stone</th>
         <th>Certification</th>
-        <th>Stones</th>
-        <th>Size</th>
         <th>Appraisal</th>
         <th>Price</th>
         <th>Description</th>
@@ -32,12 +78,9 @@
         <td><%= item.name %></td>
         <td><%= item.in_stock %></td>
         <td><%= item.metal %></td>
-        <td><%= item.center_stone %></td>
         <td><%= item.certification %></td>
-        <td><%= item.stones %></td>
-        <td><%= item.size %></td>
         <td><%= item.appraisal %></td>
-        <td><%= item.price %></td>
+        <td><%= number_to_currency(item.price) %></td>
         <td><%= item.description %></td>
         <td>
           <%= link_to admin_item_path(item) do %>

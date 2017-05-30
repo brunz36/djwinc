@@ -284,12 +284,16 @@ nav {
 
 .order-terms {
   border: 2px solid #333;
-  padding: 1em;
+  padding: 0.5em;
   border-radius: 0;
   text-decoration: none;
-  background-color: inherit;
   margin-top: 2em;
+  .order-terms-inside {
+    background-color: inherit;
+  }
 }
+
+
 
 .order-list {
   font-size: 120%;

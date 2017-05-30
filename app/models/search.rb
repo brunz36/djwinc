@@ -1,6 +1,6 @@
 class Search < ApplicationRecord
   def search_items
-    items = Item.all
+    items = Item.where(in_stock: true)
 
     items = items.where(["description LIKE ?","%#{keywords}%"]) if keywords.present?
     items = items.where(["category LIKE ?",category]) if category.present?

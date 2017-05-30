@@ -64,16 +64,16 @@
       <%= f.select :pay_type, Order.pay_types.keys, prompt: 'Payment Method', class: "form-control" %>
     </div>
     <div class="col-sm-6">
-      <button type="button" class="btn pull-right order-terms" data-toggle="modal" data-target="#terms-conditions">
-        <div class="row">
-          <div class="col-xs-2">
-            <%= f.check_box :terms_conditions, class:"form-control"  %>
-          </div>
-          <div class="col-xs-10">
-            <%= f.label :terms_conditions, "Agree To Terms & Conditions", class:"col-sm-3 control-label" %>
-          </div>
+      <div class="row pull-right order-terms">
+        <div class="col-xs-2">
+          <%= f.check_box :terms_conditions, class:"form-control"  %>
         </div>
-      </button>
+        <div class="col-xs-10">
+          <button type="button" class="btn order-terms-inside" data-toggle="modal" data-target="#terms-conditions">
+            <%= f.label :terms_conditions, "Agree To Terms & Conditions", class:"col-sm-3 control-label" %>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
