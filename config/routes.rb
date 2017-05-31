@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get 'store/index'
 
+  get 'portfolio/index'
+
   get 'pages/education'
   get 'pages/splash'
   get 'pages/landing'

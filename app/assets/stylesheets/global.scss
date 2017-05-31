@@ -575,6 +575,18 @@ button.stripe-button-el {
   }
 }
 
+// PORTFOLIO
+.index-img-portfolio {
+  padding: 2em;
+  margin-bottom: 2em;
+  border: 8px solid #333;
+  .thumbnail {
+    padding: 0;
+    border-radius: 0;
+    margin: 0;
+  }
+}
+
 @media only screen and (min-width: 768px) {
   .application-body {
     padding-bottom: 15em;
