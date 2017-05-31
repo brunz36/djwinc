@@ -14,79 +14,64 @@
     </div>
   <% end %>
 
-  <%# category %>
-  <div class="form-group">
-    <%= f.label :category, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.select(:category, Item.categories.map { |category| [ category, category ] }, prompt: 'Select Category', class: "form-control") %>
+  <div class="admin-item-form">
+    <%# category %>
+    <div class="form-group">
+      <%= f.label :category, "Category:", class: "col-xs-2 control-label" %>
+      <div class="col-xs-4">
+        <%= f.select(:category, Item.categories.map { |category| [ category, category ] }, prompt: 'Select Category', class: "form-control") %>
+      </div>
+      <%= f.label :metal, "Metal:", class: "col-xs-2 control-label" %>
+      <div class="col-xs-4">
+        <%= f.select(:metal, Item.metals.map { |metal| [ metal, metal ] }, prompt: 'Select Metal Type', class: "form-control") %>
+      </div>
     </div>
-  </div>
 
-  <%# metal %>
-  <div class="form-group">
-    <%= f.label :metal, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.select(:metal, Item.metals.map { |metal| [ metal, metal ] }, prompt: 'Select Metal Type', class: "form-control") %>
+    <div class="form-group">
+      <%= f.label :name, "Name:", class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
     </div>
-  </div>
 
-  <%# name %>
-  <div class="form-group">
-    <%= f.label :name, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_field :name, class: "form-control" %>
+    <div class="form-group">
+      <%= f.label :certification, "Certification:", class: "col-xs-4 col-sm-2 control-label" %>
+      <div class="col-xs-8 col-sm-4">
+        <%= f.hidden_field :certification, value: @item.cached_certification_data %>
+        <%= f.file_field :certification %>
+      </div>
     </div>
-  </div>
 
-  <%# certification %>
-  <div class="form-group">
-    <%= f.label :certification, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.hidden_field :certification, value: @item.cached_certification_data %>
-      <%= f.file_field :certification %>
+    <div class="form-group">
+      <%= f.label :appraisal, "Appraisal:", class: "col-xs-4 col-sm-2 control-label" %>
+      <div class="col-xs-8 col-sm-4">
+        <%= f.hidden_field :appraisal, value: @item.cached_appraisal_data %>
+        <%= f.file_field :appraisal %>
+      </div>
     </div>
-  </div>
 
-
-  <%# appraisal %>
-  <div class="form-group">
-    <%= f.label :appraisal, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.hidden_field :appraisal, value: @item.cached_appraisal_data %>
-      <%= f.file_field :appraisal %>
+    <div class="form-group">
+      <%= f.label :price, "Price:", class: "col-xs-2 control-label" %>
+      <div class="col-xs-4">
+        <%= f.number_field :price, class: "form-control" %>
+      </div>
+      <%= f.label :in_stock, "In Stock:", class: "col-xs-2 control-label" %>
+      <div class="col-xs-4">
+        <%= f.select(:in_stock, Item.in_stock.map { |stock| [ stock, stock ] }, class: "form-control") %>
+      </div>
     </div>
-  </div>
 
-
-  <%# price %>
-  <div class="form-group">
-    <%= f.label :price, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.number_field :price, class: "form-control" %>
+    <div class="form-group">
+      <%= f.label :description, "Description:", class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_area :description, class: "form-control" %>
+      </div>
     </div>
-  </div>
 
-
-  <%# description %>
-  <div class="form-group">
-    <%= f.label :description, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_area :description, class: "form-control" %>
-    </div>
-  </div>
-
-  <%# in_stock %>
-  <div class="form-group">
-    <%= f.label :in_stock, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.select(:in_stock, Item.in_stock.map { |stock| [ stock, stock ] }, class: "form-control") %>
-    </div>
-  </div>
-
-  <%# Submit %>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <%= f.submit class: "btn btn-primary" %>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= f.submit class: "admin-item-button pull-right" %>
+      </div>
     </div>
   </div>
 <% end -%>
