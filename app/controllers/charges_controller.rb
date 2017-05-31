@@ -20,7 +20,7 @@ class ChargesController < ApplicationController
       currency: 'usd'
     )
 
-    # Toggle any booleans needed on items in that order
+    OrderMailer.received(@order).deliver_later
     @order.items.update_all(in_stock: false)
 
   rescue Stripe::CardError => e
