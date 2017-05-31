@@ -42,7 +42,11 @@
         <div class="card-block">
           <div class="media">
             <div class="media-left">
-              <%= image_tag item.thumbnail_photo.image_url(:thumbnail), class:"media-object" %>
+              <%- if item.photos.any? %>
+                <%= image_tag item.thumbnail_photo.image_url(:thumbnail), class:"media-object" %>
+              <% else %>
+                <%= image_tag("stock-diamond.jpg") %>
+              <% end %>
             </div>
             <div class="media-body">
               <ul class="row media-heading">
