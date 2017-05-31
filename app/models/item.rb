@@ -6,6 +6,7 @@ class Item < ApplicationRecord
 
   validates :price, length: { in: 6...10 }, numericality: true
   validates :description, length: { in: 5..255 }
+  validates :name, :category, presence: true
 
   monetize :price_cents
 
