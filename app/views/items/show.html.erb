@@ -2,32 +2,36 @@
   <h1><%= @item.name.upcase %></h1>
 </div>
 
-<div class="djwinc-border-carousel col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-  <% if @item.photos %>
-    <div id="carousel-generic" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner" role="listbox">
-        <% @item.photos.each_with_index do |photo, index| %>
-          <%- if index == 0 %>
-            <div class="item active">
-              <%= image_tag(photo.image_url(:medium), class:"thumbnail col-xs-12") %>
-            </div>
-          <% else %>
-            <div class="item">
-              <%= image_tag(photo.image_url(:medium), class:"thumbnail col-xs-12") %>
-            </div>
+<% if @item.thumbnail_photo %>
+  <div class="djwinc-border-carousel col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      <div id="carousel-generic" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+          <% @item.photos.each_with_index do |photo, index| %>
+            <%- if index == 0 %>
+              <div class="item active">
+                <%= image_tag(photo.image_url(:medium), class:"thumbnail col-xs-12") %>
+              </div>
+            <% else %>
+              <div class="item">
+                <%= image_tag(photo.image_url(:medium), class:"thumbnail col-xs-12") %>
+              </div>
+            <% end %>
           <% end %>
-        <% end %>
-        </div>
+          </div>
 
-      <a class="left carousel-control" href="#carousel-generic" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left gold-text" aria-hidden="true"></span>
-      </a>
-      <a class="right carousel-control" href="#carousel-generic" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right gold-text" aria-hidden="true"></span>
-      </a>
-    </div>
-  <% end %>
-</div>
+        <a class="left carousel-control" href="#carousel-generic" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left gold-text" aria-hidden="true"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-generic" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right gold-text" aria-hidden="true"></span>
+        </a>
+      </div>
+  </div>
+<% else %>
+  <div class="djwinc-border-carousel col-xs-6 col-xs-offset-3">
+    <%= image_tag("stock-diamond.jpg") %>
+  </div>
+<% end %>
 
 <div class="container-fluid row">
   <div class="col-xs-12 col-sm-8 col-sm-offset-2 ">
@@ -64,8 +68,10 @@
   </div>
 </div>
 
+<%- if @item.thumbnail_photo %>
 <div class="social-button-row row">
   <div class="col-xs-6 col-xs-offset-3 text-center">
     <%= social_share_button_tag(@item.name, url: "https://brunz36-dinos-jewelry.herokuapp.com/items/#{@item.id}", image: "#{@item.thumbnail_photo.image_url(:medium)}", popup: true) %>
   </div>
 </div>
+<% end %>

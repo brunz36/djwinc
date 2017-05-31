@@ -26,11 +26,11 @@
  <%= photo_form.submit class:'admin-item-button pull-right' %>
 <% end %>
 
-<div class="container admin-edit-item-img">
+<div class="container admin-edit-item-element">
   <div class="row">
     <% @item.photos.each do |photo| %>
       <% if photo.image_data %>
-        <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+        <div class="col-xs-12 col-sm-4 col-sm-offset-1 admin-edit-item-img">
           <%= image_tag(photo.image_url(:small), class:"thumbnail center-block") %>
           <%= link_to item_photo_path(@item, photo), method: :delete, data: { confirm: 'Are you sure?' } do %>
             <span>Delete</span>

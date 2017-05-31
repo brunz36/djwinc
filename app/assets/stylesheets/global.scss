@@ -541,6 +541,25 @@ button.stripe-button-el {
   }
 }
 
+.admin-edit-item-element {
+  margin-top: 5em;
+  .thumbnail {
+    padding: 1em;
+    border: 3px solid #333;
+    border-radius: 0;
+    background-color: #f2f2f2;
+  }
+  span {
+    font-size: 125%;
+    color: #000;
+    border: 2px solid #333;
+    padding: 0.5em;
+  }
+}
+
+.admin-edit-item-img {
+  margin-bottom: 2em;
+}
 
 // ADMIN FORM
 .admin-item-form {
@@ -557,27 +576,6 @@ button.stripe-button-el {
   padding: 0.5em;
   background-color: inherit;
   border-radius: 0;
-}
-
-.admin-edit-item-img {
-  margin-top: 5em;
-  .thumbnail {
-    padding: 1em;
-    border: 3px solid #333;
-    border-radius: 0;
-    background-color: #f2f2f2;
-    position: relative;
-  }
-  span {
-    font-size: 125%;
-    position: relative;
-    color: #000;
-    bottom: 5em;
-    left: 3em;
-    border: 2px solid #333;
-    padding: 0.5em;
-    overflow: auto;
-  }
 }
 
 // PORTFOLIO
@@ -687,7 +685,7 @@ button.stripe-button-el {
       margin-bottom: 0;
     }
   }
-  
+
   a.admin-button {
     font-size: 150%;
   }
