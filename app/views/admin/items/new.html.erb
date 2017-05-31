@@ -1,9 +1,6 @@
 <div class="page-header">
-  <%= link_to items_path, class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
-  <% end %>
-  <h1>New item</h1>
+  <%= link_to "Back", admin_items_path, class: 'admin-item-button pull-right' %>
+  <h1>New Item</h1>
 </div>
 
 <%= render 'form' %>

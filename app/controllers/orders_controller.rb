@@ -33,12 +33,9 @@ class OrdersController < ApplicationController
     @order.sales_tax = @current_cart.sales_tax
     @order.total = @current_cart.total
 
-    ## if logic to charges controller
     if @order.save
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
-      # OrderMailer.received(@order).deliver_later
-      # @order.move_items_to_portfolio
       redirect_to new_charge_path(order_id: @order.id)
     else
       render :new

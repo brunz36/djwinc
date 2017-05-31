@@ -35,10 +35,10 @@
       <h3><%= @item.metal %> <%= @item.category.upcase %></h3>
     </div>
     <div class="item-row">
-      <h5><%= @item.description %></h5>
+      <h3><%= @item.description %></h3>
     </div>
     <div class="item-row">
-      <h5><%= number_to_currency(@item.price) %></h5>
+      <h3 class="text-right"><%= number_to_currency(@item.price) %></h3>
     </div>
     <div class="item-bottom-row text-center">
       <div class="col-xs-6 col-sm-4">

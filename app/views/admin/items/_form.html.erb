@@ -17,12 +17,12 @@
   <div class="admin-item-form">
     <%# category %>
     <div class="form-group">
-      <%= f.label :category, "Category:", class: "col-xs-2 control-label" %>
-      <div class="col-xs-4">
+      <%= f.label :category, "Category:", class: "col-xs-3 col-sm-2 control-label" %>
+      <div class="col-xs-9 col-sm-4 item-category">
         <%= f.select(:category, Item.categories.map { |category| [ category, category ] }, prompt: 'Select Category', class: "form-control") %>
       </div>
-      <%= f.label :metal, "Metal:", class: "col-xs-2 control-label" %>
-      <div class="col-xs-4">
+      <%= f.label :metal, "Metal:", class: "col-xs-3 col-sm-2 control-label" %>
+      <div class="col-xs-9 col-sm-4">
         <%= f.select(:metal, Item.metals.map { |metal| [ metal, metal ] }, prompt: 'Select Metal Type', class: "form-control") %>
       </div>
     </div>

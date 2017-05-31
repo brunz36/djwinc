@@ -410,18 +410,20 @@ nav {
 }
 
 // ADMIN INDEX
-.admin-button {
+.admin-index {
+  margin-top: 2em;
+}
+
+a.admin-button {
   border: 2px solid #333;
-  padding: 0.5em;
+  padding: 1em;
   background-color: inherit;
   height: 4em;
   border-radius: 0;
   font-size: 120%;
   margin: 0.5em;
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
+  text-decoration: none;
+  color: inherit;
 }
 
 // CHARGES
@@ -543,6 +545,9 @@ button.stripe-button-el {
 // ADMIN FORM
 .admin-item-form {
   padding-top: 1em;
+  .item-category {
+    margin-bottom: 1em;
+  }
 }
 
 .admin-item-button {
@@ -677,6 +682,16 @@ button.stripe-button-el {
     font-size: 120%;
   }
 
+  .admin-item-form {
+    .item-category {
+      margin-bottom: 0;
+    }
+  }
+  
+  a.admin-button {
+    font-size: 150%;
+  }
+
   .admin-show-item-header {
     h1 {
       border: 0;
@@ -688,5 +703,6 @@ button.stripe-button-el {
       border-bottom: 0;
     }
   }
+
 
 }
