@@ -455,6 +455,7 @@ button.stripe-button-el {
     list-style: none;
   }
 }
+
 .admin-item-header {
   a {
     color: inherit;
@@ -473,6 +474,104 @@ button.stripe-button-el {
     span {
       color: #000;
     }
+  }
+}
+
+// ADMIN ITEM SHOW
+.admin-show-item-header {
+  h1 {
+    margin: 0 0 0.4em 0;
+    border-bottom: 3px solid #c8a851;
+  }
+  div {
+    margin-top: 1em;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+    margin: 0 0.5em;
+    padding-top: 5em;
+  }
+  span {
+    border: 2px solid #333;
+    padding: 1em;
+  }
+}
+
+.admin-item-show-body {
+  font-size: 120%;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .thumbnail {
+    padding: 1em;
+    border: 3px solid #333;
+    border-radius: 0;
+    background-color: #f2f2f2;
+  }
+  div {
+    margin-top: 0.5em;
+  }
+  img {
+    // margin: 0;
+  }
+}
+
+// ADMIN ITEM EDIT
+.admin-edit-item-header {
+  h1 {
+    margin: 0 0 0.4em 0;
+    border-bottom: 3px solid #c8a851;
+  }
+  div {
+    margin-top: 1em;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+    margin: 0 0.5em;
+    padding-top: 5em;
+  }
+  span {
+    border: 2px solid #333;
+    padding: 1em;
+  }
+}
+
+
+// ADMIN FORM
+.admin-item-form {
+  padding-top: 1em;
+}
+
+.admin-item-button {
+  color: inherit;
+  text-decoration: none;
+  border: 2px solid #333;
+  padding: 0.5em;
+  background-color: inherit;
+  border-radius: 0;
+}
+
+.admin-edit-item-img {
+  margin-top: 5em;
+  .thumbnail {
+    padding: 1em;
+    border: 3px solid #333;
+    border-radius: 0;
+    background-color: #f2f2f2;
+    position: relative;
+  }
+  span {
+    font-size: 125%;
+    position: relative;
+    color: #000;
+    bottom: 5em;
+    left: 3em;
+    border: 2px solid #333;
+    padding: 0.5em;
+    overflow: auto;
   }
 }
 
@@ -524,6 +623,7 @@ button.stripe-button-el {
       height: 200px;
     }
   }
+
 }
 
 @media only screen and (min-width: 580px) {
@@ -564,4 +664,17 @@ button.stripe-button-el {
   .login-box {
     font-size: 120%;
   }
+
+  .admin-show-item-header {
+    h1 {
+      border: 0;
+    }
+  }
+
+  .admin-edit-item-header {
+    h1 {
+      border-bottom: 0;
+    }
+  }
+
 }
