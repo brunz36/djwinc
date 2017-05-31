@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # before_action :authorize
+  before_action :authorize
 
   # GET /users
   def index
