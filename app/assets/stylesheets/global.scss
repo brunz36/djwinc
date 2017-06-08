@@ -79,6 +79,22 @@ nav {
   }
 }
 
+#mapModal {
+  h2 {
+    padding-left: 0.5em;
+  }
+  .modal-body {
+    background-color: #f2f2f2;
+  }
+  .modal-header, .modal-footer {
+    background-color: #7f7f7f;
+    border: 0;
+  }
+  .map-button {
+    padding: 0.5em;
+  }
+}
+
 // SPLASH PAGE
 .splash-img {
   position: relative;
