@@ -69,10 +69,12 @@
         <h4>CONTACT US</h4>
         <a href="tel:8134958434" class="col-xs-12"><span class="fa fa-phone-square"></span> 813-495-8434</a>
         <a href="mailto:bruno@dinosjewelry.com" class="col-xs-12"><span class="fa fa-envelope"></span> bruno@dinosjewelry.com</a>
-        <p>Please schedule a consultation today.</p>
+        <div class="map-button" type="button" data-toggle="modal" data-target="#mapModal">
+          <span><i class="fa fa-map"></i> Click here for our location</span>
+        </div>
       </div>
       <div class="col-xs-12 col-sm-4">
-        <h4>ABOUT US</h4>
+        <h4 id="about-us" >ABOUT US</h4>
         <p class="text-left">Established in 2001, we are a fine jewelry manufacturer and designer. We specialize in Platinum and 18kt Gold custom creations.</p>
         <div class="row">
           <div class="col-xs-4">
@@ -107,5 +109,24 @@
     </div>
   </footer>
 
+  <div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title gold-text" id="myModalLabel">DINO'S JEWELRY</h2>
+        </div>
+        <div class="modal-body">
+          <div class="djwinc-border">
+            <iframe width="100%" height="400px" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=240%201st%20South%20Ave%20St.%20Petersburg%20FL&key=AIzaSyDw4ETve-ghuL9HIHHCwdNeuSh6nX81iX4" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="map-button" type="button" data-dismiss="modal">
+            <span>Close</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
