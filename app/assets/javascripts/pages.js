@@ -3,6 +3,6 @@
 
 $(document).ready(function() {
   $("#banner-header").show("puff", 3000)
-  $("#banner-box").fadeIn(5000)
-
+  $("#banner-box").fadeIn(4000)
+  $("#shop-btn").fadeIn(3000)
 })
