@@ -69,10 +69,12 @@
         <h4>CONTACT US</h4>
         <a href="tel:8134958434" class="col-xs-12"><span class="fa fa-phone-square"></span> 813-495-8434</a>
         <a href="mailto:bruno@dinosjewelry.com" class="col-xs-12"><span class="fa fa-envelope"></span> bruno@dinosjewelry.com</a>
-        <p>Please schedule a consultation today.</p>
+        <div class="map-button" type="button" data-toggle="modal" data-target="#mapModal">
+          <span>Click here for our location</span>
+        </div>
       </div>
       <div class="col-xs-12 col-sm-4">
-        <h4>ABOUT US</h4>
+        <h4 id="about-us" >ABOUT US</h4>
         <p class="text-left">Established in 2001, we are a fine jewelry manufacturer and designer. We specialize in Platinum and 18kt Gold custom creations.</p>
         <div class="row">
           <div class="col-xs-4">
@@ -107,5 +109,21 @@
     </div>
   </footer>
 
+  <div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
