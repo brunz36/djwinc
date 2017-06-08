@@ -74,7 +74,6 @@ nav {
   padding: 3.6em 0 1em 0;
   cursor: pointer;
   span {
-    border: 2px solid #000;
     padding: 0.5em;
   }
 }
@@ -92,6 +91,9 @@ nav {
   }
   .map-button {
     padding: 0.5em;
+    span {
+      border: 2px solid #000;
+    }
   }
 }
 
