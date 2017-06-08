@@ -15,19 +15,23 @@
   padding-left: 0.5em;
 }
 
-.landing-header {
-  background-color: rgba(0, 0, 0, 0.6);
-  font-size: 90%;
+#banner-header {
+  display: none;
+}
+
+.gold-text-shadow {
+  text-shadow: 2px 2px 2px #000, 4px 4px 5px #fff;
 }
 
 .landing-box {
   border: 2px solid #c8a851;
   color: #fff;
-  margin-top: 25em;
+  margin-top: 15em;
   background-color: rgba(0, 0, 0, 0.6);
-  .gold-text-landing {
-    text-shadow: none;
-  }
+}
+
+#banner-box {
+  display: none;
 }
 
 @media only screen and (min-width: 768px) {
