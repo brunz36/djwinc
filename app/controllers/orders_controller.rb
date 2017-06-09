@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @current_cart.line_items.each do |item|
       @order.line_items << item
-      item.cart_id = nil
+      item.destroy
     end
 
     @order.sub_total = @current_cart.sub_total
