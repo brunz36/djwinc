@@ -18,10 +18,3 @@
 
 //= require 'cable'
 //= require 'pages'
-
-$(document).ready(function() {
-  $("#about-us").click(function(){
-    $(this).hide()
-  })
-
-})
