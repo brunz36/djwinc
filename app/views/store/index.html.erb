@@ -6,12 +6,20 @@
 
 <%= search_form_for @q, url: store_index_path, html: { method: :get } do |f| %>
 
-<!-- # Search if the name field contains... -->
-  <%= f.label :name_cont %>
-  <%= f.search_field :name_cont %>
+  <%= f.label :name_or_description_cont, "Keywords:" %>
+  <%= f.search_field :name_or_description_cont %>
 
-  <%= f.label :category_cont, "Category:" %>
-  <%= f.select(:category_cont, Item.categories.map { |category| [ category, category ] }, prompt: 'Select Category') %>
+  <%= f.label :category_eq, "Category:" %>
+  <%= f.select(:category_eq, Item.categories.map { |category| [ category, category ] }, prompt: 'Select Category') %>
+
+  <%= f.label :metal_eq, "Metal:" %>
+  <%= f.select(:metal_eq, Item.metals.map { |metal| [ metal, metal ] }, prompt: 'Select Metal Type') %>
+
+  <%= f.label :price_money_gteq, "Minimum Price:" %>
+  <%= f.number_field :price_money_gteq %>
+
+  <%= f.label :price_money_lteq, "Max Price:" %>
+  <%= f.number_field :price_money_lteq %>
 
   <%= f.submit %>
 <% end %>
