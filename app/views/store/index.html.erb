@@ -1,41 +1,39 @@
 <div class="page-header container index-header djwinc-border col-xs-12">
   <h1 class="col-xs-12 col-sm-6 col-md-7">Custom Creations</h1>
   <h4 class="gold-text col-xs-7 col-sm-3 col-md-3">Escape the routine.</h4>
-  <div class="btn search-bar-button col-xs-5 col-sm-3 col-md-2" type="button" data-toggle="collapse" data-target="#item_search" aria-expanded="false" aria-controls="item_search">
-    Search Bar
-  </div>
-  <div class="collapse" id="item_search">
+  <span class="btn search-drop-button col-xs-5 col-sm-3 col-md-2" type="button" data-toggle="collapse" data-target="#item_search" aria-expanded="false" aria-controls="item_search">Search Menu <i class="fa fa-angle-double-down" aria-hidden="true"></i></span>
+  <div class="collapse search-box" id="item_search">
     <hr>
     <%= search_form_for @q, url: store_index_path, html: { method: :get } do |f| %>
 
       <div class="col-xs-12">
-        <%= f.label :name_or_description_cont, "Keywords:", class: "col-xs-4" %>
-        <%= f.search_field :name_or_description_cont, class: "col-xs-8" %>
+        <%= f.label :name_or_description_cont, "Keywords:", class: "col-xs-4 col-sm-2 col-lg-1" %>
+        <%= f.search_field :name_or_description_cont, class: "col-xs-8 col-sm-10 col-lg-11" %>
       </div>
 
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-sm-6">
         <%= f.label :category_eq, "Category:", class: "col-xs-4" %>
         <%= f.select(:category_eq, Item.categories.map { |category| [ category, category ] }, prompt: 'Select Category', class:"col-xs-8") %>
       </div>
 
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-sm-6">
         <%= f.label :metal_eq, "Metal:", class: "col-xs-4" %>
         <%= f.select(:metal_eq, Item.metals.map { |metal| [ metal, metal ] }, prompt: 'Select Metal Type', class:"col-xs-8") %>
       </div>
 
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-sm-6">
         <%= f.label :price_money_gteq, "Min Price:", class: "col-xs-4" %>
         <%= f.number_field :price_money_gteq, class:"col-xs-8" %>
       </div>
 
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-sm-6">
         <%= f.label :price_money_lteq, "Max Price:", class: "col-xs-4" %>
         <%= f.number_field :price_money_lteq, class:"col-xs-8" %>
       </div>
 
       <div class="form-group row col-xs-12">
-        <%= f.submit class: "search-bar-button"%>
-        <%= link_to "Reset Search", store_index_path, class:"search-bar-button" %>
+        <%= f.submit class: "search-bar-button pull-right"%>
+        <%= link_to "Reset Search", store_index_path, class:"search-bar-button pull-left" %>
       </div>
     <% end %>
   </div>

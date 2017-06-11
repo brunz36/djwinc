@@ -128,16 +128,13 @@ nav {
   background-color: #d0d0d0;
   h1 {
     margin: 0.4em 0 0 0;
-    font-size: 200%;
+    font-size: 250%;
   }
   h4 {
     margin: 0.8em 0 0 0;
     font-weight: bolder;
   }
-  hr {
-    border: 3px solid #c8a851;
-  }
-  .search-bar-button {
+  .search-drop-button {
     border: 2px solid #333;
     padding: 0.5em;
     background-color: #d0d0d0;
@@ -146,10 +143,22 @@ nav {
     font-size: 120%;
     color: #333;
   }
-}
-
-.bruno {
-  border: 2px solid red;
+  .search-box {
+    div {
+      margin-bottom: 0.5em;
+    }
+    hr {
+      border: 3px solid #c8a851;
+    }
+    .search-bar-button {
+      border: 2px solid #333;
+      padding: 0.5em;
+      background-color: #d0d0d0;
+      margin: 1em 0;
+      border-radius: 0;
+      color: #333;
+    }
+  }
 }
 
 .index-img {
@@ -666,6 +675,12 @@ button.stripe-button-el {
     }
   }
 
+  .index-header {
+    .search-box {
+      font-size: 120%;
+    }
+  }
+
   .item-bottom-row {
     .add-to-cart {
       padding-top: 0;
@@ -678,10 +693,6 @@ button.stripe-button-el {
 
   .order-terms {
     margin-top: 0;
-  }
-
-  .search-box {
-    font-size: 120%;
   }
 
   .login-box {
