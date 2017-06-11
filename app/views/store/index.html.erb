@@ -4,6 +4,18 @@
     <!-- BASIC REFACTOR LATER -->
 </div>
 
+<%= search_form_for @q, url: store_index_path, html: { method: :get } do |f| %>
+
+<!-- # Search if the name field contains... -->
+  <%= f.label :name_cont %>
+  <%= f.search_field :name_cont %>
+
+  <%= f.label :category_cont, "Category:" %>
+  <%= f.select(:category_cont, Item.categories.map { |category| [ category, category ] }, prompt: 'Select Category') %>
+
+  <%= f.submit %>
+<% end %>
+
 <div class="row">
   <%- @items.each do |item| %>
     <div class="col-xs-12 col-sm-6">
