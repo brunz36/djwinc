@@ -1,28 +1,37 @@
 <div class="page-header index-header djwinc-border col-xs-12">
     <h1 class="col-xs-12 col-sm-9">Custom Creations</h1>
     <h4 class="gold-text col-xs-12 col-sm-3">Escape the routine.</h4>
-    <!-- BASIC REFACTOR LATER -->
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#item_search" aria-expanded="false" aria-controls="collapseExample">
+      Search
+    </button>
+    <div class="collapse" id="item_search">
+      <div class="well">
+        <%= search_form_for @q, url: store_index_path, html: { method: :get } do |f| %>
+
+          <%= f.label :name_or_description_cont, "Keywords:" %>
+          <%= f.search_field :name_or_description_cont %>
+
+          <%= f.label :category_eq, "Category:" %>
+          <%= f.select(:category_eq, Item.categories.map { |category| [ category, category ] }, prompt: 'Select Category') %>
+
+          <%= f.label :metal_eq, "Metal:" %>
+          <%= f.select(:metal_eq, Item.metals.map { |metal| [ metal, metal ] }, prompt: 'Select Metal Type') %>
+
+          <%= f.label :price_money_gteq, "Minimum Price:" %>
+          <%= f.number_field :price_money_gteq %>
+
+          <%= f.label :price_money_lteq, "Max Price:" %>
+          <%= f.number_field :price_money_lteq %>
+
+          <%= f.submit %>
+
+          <%= link_to "Reset Search", store_index_path %>
+        <% end %>
+      </div>
+    </div>
 </div>
 
-<%= search_form_for @q, url: store_index_path, html: { method: :get } do |f| %>
 
-  <%= f.label :name_or_description_cont, "Keywords:" %>
-  <%= f.search_field :name_or_description_cont %>
-
-  <%= f.label :category_eq, "Category:" %>
-  <%= f.select(:category_eq, Item.categories.map { |category| [ category, category ] }, prompt: 'Select Category') %>
-
-  <%= f.label :metal_eq, "Metal:" %>
-  <%= f.select(:metal_eq, Item.metals.map { |metal| [ metal, metal ] }, prompt: 'Select Metal Type') %>
-
-  <%= f.label :price_money_gteq, "Minimum Price:" %>
-  <%= f.number_field :price_money_gteq %>
-
-  <%= f.label :price_money_lteq, "Max Price:" %>
-  <%= f.number_field :price_money_lteq %>
-
-  <%= f.submit %>
-<% end %>
 
 <div class="row">
   <%- @items.each do |item| %>
