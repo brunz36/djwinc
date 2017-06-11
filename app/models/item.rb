@@ -10,6 +10,10 @@ class Item < ApplicationRecord
 
   monetize :price_cents
 
+  ransacker :price_money, type: :integer, formatter: proc { |dollars| dollars * 100 } do |p|
+    p.table[:price_cents]
+  end
+
   include FileUploader[:appraisal]
   include FileUploader[:certification]
 

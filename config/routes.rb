@@ -21,7 +21,6 @@ Rails.application.routes.draw do
   resources :orders
   resources :line_items
   resources :carts
-  resources :searches
   resources :charges
 
   # For my customers
