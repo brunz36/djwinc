@@ -1,37 +1,45 @@
-<div class="page-header index-header djwinc-border col-xs-12">
-    <h1 class="col-xs-12 col-sm-9">Custom Creations</h1>
-    <h4 class="gold-text col-xs-12 col-sm-3">Escape the routine.</h4>
-    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#item_search" aria-expanded="false" aria-controls="collapseExample">
-      Search
-    </button>
-    <div class="collapse" id="item_search">
-      <div class="well">
-        <%= search_form_for @q, url: store_index_path, html: { method: :get } do |f| %>
+<div class="page-header container index-header djwinc-border col-xs-12">
+  <h1 class="col-xs-12 col-sm-6 col-md-7">Custom Creations</h1>
+  <h4 class="gold-text col-xs-7 col-sm-3 col-md-3">Escape the routine.</h4>
+  <div class="btn search-bar-button col-xs-5 col-sm-3 col-md-2" type="button" data-toggle="collapse" data-target="#item_search" aria-expanded="false" aria-controls="item_search">
+    Search Bar
+  </div>
+  <div class="collapse" id="item_search">
+    <hr>
+    <%= search_form_for @q, url: store_index_path, html: { method: :get } do |f| %>
 
-          <%= f.label :name_or_description_cont, "Keywords:" %>
-          <%= f.search_field :name_or_description_cont %>
-
-          <%= f.label :category_eq, "Category:" %>
-          <%= f.select(:category_eq, Item.categories.map { |category| [ category, category ] }, prompt: 'Select Category') %>
-
-          <%= f.label :metal_eq, "Metal:" %>
-          <%= f.select(:metal_eq, Item.metals.map { |metal| [ metal, metal ] }, prompt: 'Select Metal Type') %>
-
-          <%= f.label :price_money_gteq, "Minimum Price:" %>
-          <%= f.number_field :price_money_gteq %>
-
-          <%= f.label :price_money_lteq, "Max Price:" %>
-          <%= f.number_field :price_money_lteq %>
-
-          <%= f.submit %>
-
-          <%= link_to "Reset Search", store_index_path %>
-        <% end %>
+      <div class="col-xs-12">
+        <%= f.label :name_or_description_cont, "Keywords:", class: "col-xs-4" %>
+        <%= f.search_field :name_or_description_cont, class: "col-xs-8" %>
       </div>
-    </div>
+
+      <div class="col-xs-12">
+        <%= f.label :category_eq, "Category:", class: "col-xs-4" %>
+        <%= f.select(:category_eq, Item.categories.map { |category| [ category, category ] }, prompt: 'Select Category', class:"col-xs-8") %>
+      </div>
+
+      <div class="col-xs-12">
+        <%= f.label :metal_eq, "Metal:", class: "col-xs-4" %>
+        <%= f.select(:metal_eq, Item.metals.map { |metal| [ metal, metal ] }, prompt: 'Select Metal Type', class:"col-xs-8") %>
+      </div>
+
+      <div class="col-xs-12">
+        <%= f.label :price_money_gteq, "Min Price:", class: "col-xs-4" %>
+        <%= f.number_field :price_money_gteq, class:"col-xs-8" %>
+      </div>
+
+      <div class="col-xs-12">
+        <%= f.label :price_money_lteq, "Max Price:", class: "col-xs-4" %>
+        <%= f.number_field :price_money_lteq, class:"col-xs-8" %>
+      </div>
+
+      <div class="form-group row col-xs-12">
+        <%= f.submit class: "search-bar-button"%>
+        <%= link_to "Reset Search", store_index_path, class:"search-bar-button" %>
+      </div>
+    <% end %>
+  </div>
 </div>
-
-
 
 <div class="row">
   <%- @items.each do |item| %>

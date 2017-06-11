@@ -125,14 +125,31 @@ nav {
 
 // INDEX PAGE
 .index-header {
-  background-color: rgba(181, 181, 181, 0.4);
+  background-color: #d0d0d0;
   h1 {
     margin: 0.4em 0 0 0;
     font-size: 200%;
   }
   h4 {
     margin: 0.8em 0 0 0;
+    font-weight: bolder;
   }
+  hr {
+    border: 3px solid #c8a851;
+  }
+  .search-bar-button {
+    border: 2px solid #333;
+    padding: 0.5em;
+    background-color: #d0d0d0;
+    margin: 1em 0;
+    border-radius: 0;
+    font-size: 120%;
+    color: #333;
+  }
+}
+
+.bruno {
+  border: 2px solid red;
 }
 
 .index-img {
@@ -171,7 +188,7 @@ nav {
 // EDUCATION PAGE
 .education-header {
   display: inline-block;
-  background-color: rgba(181, 181, 181, 0.4);
+  background-color: #d0d0d0;
   width: 100%;
   a {
     text-decoration: none;
@@ -382,42 +399,6 @@ nav {
 .modal-body-terms {
   overflow-y: auto;
   max-height: 80vh;
-}
-
-// SEARCH
-.search-box {
-  div {
-    margin: 0.5em 0;
-  }
-  #search_keywords {
-    width: 50vw;
-  }
-}
-
-.search-button {
-  border: 2px solid #333;
-  padding: 1em;
-  background-color: inherit;
-  margin: 1em 2em 0 0;
-  border-radius: 0;
-  font-size: 120%;
-}
-
-.search-again {
-  border: 2px solid #333;
-  padding: 1em;
-  background-color: inherit;
-  border-radius: 0;
-  font-size: 120%;
-  color: inherit;
-  text-decoration: none;
-}
-
-.search-header {
-  margin-bottom: 2em;
-  div {
-    margin-top: 0.5em;
-  }
 }
 
 // LOGIN
@@ -728,6 +709,5 @@ button.stripe-button-el {
       border-bottom: 0;
     }
   }
-
 
 }
