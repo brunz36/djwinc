@@ -18,3 +18,4 @@
 
 //= require 'cable'
 //= require 'pages'
+//= require 'orders'

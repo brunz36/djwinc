@@ -30,7 +30,7 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
-    redirect_to cart_path, notice: 'Line item was successfully destroyed.'
+    redirect_to cart_path, notice: 'Your Item was Removed from the Cart.'
   end
 
   private
