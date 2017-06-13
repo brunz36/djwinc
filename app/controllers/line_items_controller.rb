@@ -1,5 +1,4 @@
 class LineItemsController < ApplicationController
-
   # GET /line_items/new
   def new
     @line_item = LineItem.new

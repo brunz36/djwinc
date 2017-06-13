@@ -1,11 +1,8 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
-$.datepicker.setDefaults({
-  showOn: "both",
-  buttonText: "Calendar"
-});
-
 $(function(){
-  $("#datepicker").datepicker()
+  $(".input-daterange").datepicker({
+    format: 'yyyy-mm-dd'
+  })
 })
