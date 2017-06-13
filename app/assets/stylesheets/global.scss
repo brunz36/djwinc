@@ -308,6 +308,9 @@ nav {
     border: 2px solid #333;
     padding: 1em;
   }
+  .btn {
+    font-size: 120%;
+  }
 }
 
 .order-total-border {
@@ -359,6 +362,22 @@ nav {
     span {
       color: #000;
     }
+  }
+}
+
+.order-filter {
+  border: 3px solid #333;
+  padding: 1em 0;
+  div {
+    margin-bottom: 0.5em;
+  }
+  .order-filter-button {
+    border: 2px solid #333;
+    padding: 0.5em;
+    background-color: inherit;
+    margin: 1em 0;
+    border-radius: 0;
+    color: #333;
   }
 }
 
@@ -656,6 +675,9 @@ button.stripe-button-el {
     }
   }
 
+  .bottom-paginate {
+    margin-bottom: 3em;
+  }
 }
 
 @media only screen and (min-width: 580px) {
@@ -689,6 +711,13 @@ button.stripe-button-el {
 
   .social-button-row {
     padding-bottom: 2em;
+  }
+
+  .order-index {
+    font-size: 130%;
+    h5 {
+      font-size: 110%;
+    }
   }
 
   .order-terms {

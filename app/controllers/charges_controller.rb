@@ -24,6 +24,7 @@ class ChargesController < ApplicationController
     @order.items.update_all(in_stock: false)
 
   rescue Stripe::CardError => e
+    @order.destroy
     flash[:error] = e.message
     redirect_to new_charge_path
   end

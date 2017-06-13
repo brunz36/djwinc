@@ -14,7 +14,9 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require bootstrap
+//= require bootstrap-datepicker
 //= require social-share-button
 
 //= require 'cable'
 //= require 'pages'
+//= require 'orders'

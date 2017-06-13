@@ -76,6 +76,9 @@ gem 'stripe', '~> 2.11'
 # SEARCH GEM
 gem 'ransack', '~> 1.8', '>= 1.8.2'
 
+# CALENDAR DATEPICKER
+gem 'bootstrap-datepicker-rails', '~> 1.6', '>= 1.6.4.1'
+
 group :development do
   gem 'awesome_print'
   gem 'dotenv-rails'

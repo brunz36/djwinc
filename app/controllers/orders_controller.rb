@@ -3,7 +3,8 @@ class OrdersController < ApplicationController
 
   # GET /orders
   def index
-    @orders = Order.all.order(created_at: :asc).page(params[:page]).per(10)
+    @q = Order.ransack(params[:q])
+    @orders = @q.result(distinct: true).order(created_at: :asc).page(params[:page]).per(10)
   end
 
   # GET /orders/1
@@ -26,7 +27,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @current_cart.line_items.each do |item|
       @order.line_items << item
-      item.destroy
+      item.cart_id = nil
     end
 
     @order.sub_total = @current_cart.sub_total

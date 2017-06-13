@@ -1,6 +1,6 @@
 <div class="container">
   <div class="pay-box col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4 pay-box text-center">
-    <h2>Thank you <% @order.first_name %>, for your order.</h2>
+    <h2>Thank you <%= @order.first_name %>, for your order.</h2>
     <h4>Your order number is <%= @order.id %>.</h4>
     <h4>You will receive an email with your order and shipping and confirmation soon at <%= @order.email %>.</h4>
     <h4>Your total was <%= number_to_currency(@order.total)%></h4>
