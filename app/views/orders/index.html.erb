@@ -3,35 +3,40 @@
     <span>New Order</span>
   <% end %>
   <h1 Listing>Dino's Jewelry Orders</h1>
+  <div class="btn" type="button" data-toggle="collapse" data-target="#order_search" aria-expanded="false" aria-controls="order_search">Filter Orders <i class="fa fa-filter" aria-hidden="true"></i></div>
 </div>
 
-<div class="container order-filter">
-  <%= search_form_for @q do |f| %>
+<div class="collapse" id="order_search">
+  <div class="container order-filter">
+    <%= search_form_for @q do |f| %>
 
-    <div class="col-xs-12 col-sm-6">
-      <%= f.label :first_name_or_last_name_cont, "Name:", class: "col-xs-4 col-sm-2" %>
-      <%= f.search_field :first_name_or_last_name_cont, class: "col-xs-8 col-sm-10", placeholder: "First or Last Name"%>
-    </div>
-
-    <div class="col-xs-12 col-sm-6">
-      <%= f.label :email_cont, "Email:", class: "col-xs-4 col-sm-2" %>
-      <%= f.search_field :email_cont, class: "col-xs-8 col-sm-10", placeholder: "john_smith@example.com" %>
-    </div>
-
-    <div class="input-daterange col-xs-12">
-      <div class="col-xs-12 text-center">
-        <%= f.label :created_at, "Date Range:" %>
-        <%= f.text_field :created_at_gteq, as: :date_time, value: f.object.try(:strftime, "%m/%d/%Y"), placeholder: "Click Here" %>
-        <%= f.label :created_at, "Between" %>
-        <%= f.text_field :created_at_lteq, as: :date_time, value: f.object.try(:strftime, "%m/%d/%Y"), placeholder: "Click Here" %>
+      <div class="col-xs-12 col-sm-6">
+        <%= f.label :first_name_or_last_name_cont, "Name:", class: "col-xs-4 col-sm-2" %>
+        <%= f.search_field :first_name_or_last_name_cont, class: "col-xs-8 col-sm-10", placeholder: "First or Last Name"%>
       </div>
-    </div>
 
-    <div class="col-xs-12">
-      <%= f.submit class: "search-bar-button pull-right"%>
-      <%= link_to "Reset Orders", orders_path, class:"search-bar-button pull-left" %>
-    </div>
-  <% end %>
+      <div class="col-xs-12 col-sm-6">
+        <%= f.label :email_cont, "Email:", class: "col-xs-4 col-sm-2" %>
+        <%= f.search_field :email_cont, class: "col-xs-8 col-sm-10", placeholder: "john_smith@example.com" %>
+      </div>
+
+      <div class="input-daterange">
+        <div class="col-xs-12 col-sm-6">
+          <%= f.label :created_at, "Orders Date Range:", class: "col-xs-12 col-sm-4 text-center" %>
+          <%= f.text_field :created_at_gteq, as: :date_time, value: f.object.try(:strftime, "%m/%d/%Y"), placeholder: "Click Here", class: "col-xs-12 col-sm-8 text-center" %>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <%= f.label :created_at, "Between", class: "col-xs-12 col-sm-4 text-center" %>
+          <%= f.text_field :created_at_lteq, as: :date_time, value: f.object.try(:strftime, "%m/%d/%Y"), placeholder: "Click Here", class: "col-xs-12 col-sm-8 text-center" %>
+        </div>
+      </div>
+
+      <div class="col-xs-12">
+        <%= f.submit "Filter", class: "order-filter-button pull-right"%>
+        <%= link_to "Reset Orders", orders_path, class:"order-filter-button pull-left" %>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <div class="col-xs-12 text-center order-index">
@@ -57,8 +62,7 @@
                   <h5><%= order.id %></h5>
                 </div>
                 <div class="col-xs-3">
-                  <h5><%= order.created_at %></h5>
-                  <!-- order.created_at.strftime("%m/%d/%Y") -->
+                  <h5><%= order.created_at.strftime("%m/%d/%Y") %></h5>
                 </div>
                 <div class="col-xs-7">
                   <h5><%= order.email %></h5>
@@ -187,9 +191,11 @@
   </div>
 </div>
 
-<div class="text-center items-paginate">
-  <%= paginate @orders, theme: "bootstrap2" %>
-</div>
-<div class="text-center items-paginate">
-  <%= page_entries_info @orders, entry_name: 'Orders' %>
+<div class="bottom-paginate">
+  <div class="text-center items-paginate">
+    <%= paginate @orders, theme: "bootstrap2" %>
+  </div>
+  <div class="text-center items-paginate">
+    <%= page_entries_info @orders, entry_name: 'Orders' %>
+  </div>
 </div>
