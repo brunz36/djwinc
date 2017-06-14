@@ -1,9 +1,8 @@
-# Dino's Jewelry Workshop Inc.
+# [Dino's Jewelry Workshop Inc.](https://brunz36-dinos-jewelry.herokuapp.com)
 
-### **[The Iron Yard](http://theironyard.com)** Cohort 7 &dash; Ruby On Rails Back-End Engineer
+### **[The Iron Yard](http://theironyard.com)** &dash; Ruby On Rails Back-End Engineer
 
-#### The final iteration of nextChapter with JS and mailer.
-
+###### This is an E-commerce site for my jewelry manufacturing business.
 
 - This application shows the use of the following technologies:
   - Ruby
@@ -13,9 +12,15 @@
   - Bootstrap
   - JS
   - Mailer
+  - Stripe CC Processing
 - The major features of the application are:
+  - E-commerce Cart & Admin Side
+  - Social Media Sharing
+  - Google Map Integration
+  - Image & PDF Uploading
+  - Ransack Searching
   - Carousel
   - Sending Emails when user signs up and user homes gets favorited
 
 ## DEMO
-![](https://raw.githubusercontent.com/brunz36/nextchapter_ajax_email/master/app/assets/images/nextchapter-email.gif)
+![](https://raw.githubusercontent.com/brunz36/djwinc/master/app/assets/images/djwinc1.gif)
